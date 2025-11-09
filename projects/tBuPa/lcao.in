@@ -1,0 +1,80 @@
+do setup
+do iters
+do force
+do relax
+do post
+setup data
+title
+title2
+functional
+ PBE-SP
+spin polarization
+ 1.0
+dimension of system (0=cluster ... 3=bulk)
+ 0
+coordinates
+CARTESIAN
+scale
+ 1
+primitive lattice vectors
+  60.0000000000     0.00000000000     0.00000000000
+  0.00000000000     60.0000000000     0.00000000000
+  0.00000000000     0.00000000000     60.0000000000
+grid dimensions
+       160  160  160
+atom types
+ 4
+atom file
+ O = O.atm
+atom file
+ H = H.atm
+atom file
+ C = C.atm
+atom file
+ P = P.atm
+number of atoms in unit cell
+  19
+atom, type, position;  step#     0
+   AT1    P     -0.1956196200     0.0009775858     1.2603611022
+   AT2    O      1.0513655031     2.4859772994     2.4381541585
+   AT3    O      1.0515352841    -2.4858783560     2.4379732867
+   AT4    O     -2.9705230173    -0.0001954674     1.9159857034
+   AT5    H      2.9618245992     2.5089882573     2.5574492256
+   AT6    H      2.9602661533    -2.5083906279     2.5583926302
+   AT7    C      0.0338568690     0.0030010467    -2.2913389751
+   AT8    C      2.8819177697     0.0221278995    -2.8780335221
+   AT9    C     -1.2678580799    -2.4064767619    -3.2419086216
+   AT10   C     -1.2724451686     2.4093798002    -3.2405975636
+   AT11   H      3.0763762785     0.1382345740    -4.9388626586
+   AT12   H      3.8928439497    -1.6502332697    -2.1662562336
+   AT13   H      3.8817774243     1.6642388072    -2.0970999470
+   AT14   H     -0.2516618644    -4.0653285445    -2.5542654630
+   AT15   H     -1.1928049621    -2.4962990582    -5.3248424595
+   AT16   H     -3.2316591569    -2.5513582280    -2.6020146078
+   AT17   H     -0.2538467611     4.0675218596    -2.5538351484
+   AT18   H     -3.2364145042     2.5534002743    -2.6019823476
+   AT19   H     -1.1947101101     2.4975472848    -5.3237152054
+origin offset
+ 0 0 0
+end setup phase data
+run phase input data
+history
+ 8
+no ges
+states
+ 200
+temperature
+ 0.01
+iterations
+ 300
+blend ratio
+0.300
+convergence criterion
+ 0.02
+geometry relaxation
+gmethod
+asd
+gsteps
+ 60
+end geometry relaxation
+end run phase data

@@ -1,0 +1,24 @@
+#!/bin/bash
+#SBATCH --job-name=tBuPa
+#SBATCH -p RM-shared
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=19
+#SBATCH -t 12:00:00
+
+#load the modules
+
+# module load intel/20.4
+# module load intelmpi/20.4-intel20.4
+# module load mkl/2020.4.304
+# module load allocations/1.0
+
+# Load required modules
+module purge
+module load intel
+module load openmpi
+
+# Add MKL library path so runtime linker can find .so files
+export LD_LIBRARY_PATH=$MKLROOT/lib/intel64:$LD_LIBRARY_PATH
+
+cd /ocean/projects/mat250017p/desantos/projects/tBuPa           # update based on project location 
+mpirun /ocean/projects/mat250017p/desantos/seqquest_parallel/quest_265a.x
