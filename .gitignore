@@ -1,8 +1,12 @@
+# Ignore post processed trash directory
 trashdir/
+
+# If a user forgot to post process before commiting, ignore large garbage output files
 *.drh0
 *.grho
 *.grd0
 
+# Ignore Seqquest Executable (Copyright by Sandia)
 seqquest_parallel-20251006T044228Z-1-001.zip
 seqquest_parallel
 seqquest_serial

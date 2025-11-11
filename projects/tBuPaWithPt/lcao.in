@@ -1,0 +1,85 @@
+do setup
+do iters
+do force
+do relax
+do post
+setup data
+title
+title2
+functional
+ PBE-SP
+spin polarization
+ 1.0
+dimension of system (0=cluster ... 3=bulk)
+ 0
+coordinates
+CARTESIAN
+scale
+ 1
+primitive lattice vectors
+  60.0000000000     0.00000000000     0.00000000000
+  0.00000000000     60.0000000000     0.00000000000
+  0.00000000000     0.00000000000     60.0000000000
+grid dimensions
+       128  128  128
+atom types
+ 6
+atom file
+ O = O.atm
+atom file
+ H = H.atm
+atom file
+ C = C.atm
+atom file
+ Pt = Pt.atm
+atom file
+ P = P.atm
+atom file
+ Si = Si.atm
+number of atoms in unit cell
+  20
+atom, type, position;  step#     0
+   AT1    P     -0.3211548979    -0.0094307158     1.1829811987
+   AT2    O      1.0360924291     2.4736964908     2.4310604077
+   AT3    O      1.0328356332    -2.4698328469     2.4267227461
+   AT4    O     -2.9907061841     0.0015255362     1.9307066705
+   AT5    H      2.8812794365     2.5504806483     2.5547804364
+   AT6    H      2.8740460216    -2.5427340888     2.5477077041
+   AT7    C      0.0744429611     0.0064610331    -2.2550261349
+   AT8    C      2.9006139562     0.0322027658    -2.8887073571
+   AT9    C     -1.2321971608    -2.3973572239    -3.2515803412
+   AT10   C     -1.2490034134     2.4019907804    -3.2476196199
+   AT11   H      3.1171316275     0.1606831994    -4.9402163634
+   AT12   H      3.9132090792    -1.6497962884    -2.1965290045
+   AT13   H      3.8968646258     1.6755565963    -2.1048353963
+   AT14   H     -0.2354772693    -4.0743113425    -2.5708978654
+   AT15   H     -1.1838857202    -2.4716329090    -5.3348344931
+   AT16   H     -3.1879961782    -2.5403420934    -2.5944671283
+   AT17   H     -0.2487888346     4.0781225388    -2.5687216024
+   AT18   H     -3.2067545607     2.5419854432    -2.5942557819
+   AT19   H     -1.1897438913     2.4768907377    -5.3313696044
+   AT20   Pt     0.7514547625     5.8134243037     6.7851678908
+origin offset
+ 0 0 0
+end setup phase data
+run phase input data
+history
+ 8
+no ges
+states
+ 200
+temperature
+ 0.01
+iterations
+ 300
+blend ratio
+0.300
+convergence criterion
+ 0.02
+geometry relaxation
+gmethod
+asd
+gsteps
+ 200
+end geometry relaxation
+end run phase data

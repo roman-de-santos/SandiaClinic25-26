@@ -1,0 +1,85 @@
+do setup
+do iters
+do force
+do relax
+do post
+setup data
+title
+title2
+functional
+ PBE-SP
+spin polarization
+ 1.0
+dimension of system (0=cluster ... 3=bulk)
+ 0
+coordinates
+CARTESIAN
+scale
+ 1
+primitive lattice vectors
+  60.0000000000     0.00000000000     0.00000000000
+  0.00000000000     60.0000000000     0.00000000000
+  0.00000000000     0.00000000000     60.0000000000
+grid dimensions
+       128  128  128
+atom types
+ 6
+atom file
+ O = O.atm
+atom file
+ H = H.atm
+atom file
+ C = C.atm
+atom file
+ Pt = Pt.atm
+atom file
+ P = P.atm
+atom file
+ Si = Si.atm
+number of atoms in unit cell
+  20
+atom, type, position; step#     0
+AT1   P    -0.1956244343   0.0009826575   1.2603527481
+AT2   O     1.0513679510   2.4859723325   2.4381622650
+AT3   O     1.0515380264  -2.4858778462   2.4379732924
+AT4   O    -2.9705169733  -0.0001889726   1.9159931798
+AT5   H     2.9618242337   2.5089891951   2.5574417694
+AT6   H     2.9602557611  -2.5083844827   2.5583866324
+AT7   C     0.0338638897   0.0030046643  -2.2913305557
+AT8   C     2.8819077217   0.0221286913  -2.8780337834
+AT9   C    -1.2678549603  -2.4064715602  -3.2419005225
+AT10  C    -1.2724469944   2.4093817382  -3.2405966116
+AT11  H     3.0763794231   0.1382334561  -4.9388555630
+AT12  H     3.8928355365  -1.6502410141  -2.1662495925
+AT13  H     3.8817806395   1.6642438836  -2.0971045186
+AT14  H    -0.2516548099  -4.0653297248  -2.5542670298
+AT15  H    -1.1927950440  -2.4962902364  -5.3248320962
+AT16  H    -3.2316582076  -2.5513568517  -2.6020204055
+AT17  H    -0.2538468920   4.0675218069  -2.5538323928
+AT18  H    -3.2364203171   2.5533977558  -2.6019826110
+AT19  H    -1.1947036673   2.4975374556  -5.3237171578
+AT20  Pt    0.7792852032   5.7570691215   6.7038974309
+origin offset
+ 0 0 0
+end setup phase data
+run phase input data
+history
+ 8
+no ges
+states
+ 200
+temperature
+ 0.01
+iterations
+ 300
+blend ratio
+0.300
+convergence criterion
+ 0.02
+geometry relaxation
+gmethod
+asd
+gsteps
+ 200
+end geometry relaxation
+end run phase data
