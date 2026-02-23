@@ -20,5 +20,5 @@ module load openmpi
 # Add MKL library path so runtime linker can find .so files
 export LD_LIBRARY_PATH=$MKLROOT/lib/intel64:$LD_LIBRARY_PATH
 
-cd /ocean/projects/mat250017p/desantos/projects/KarstedtCatalyst2           # update based on project location 
-mpirun /ocean/projects/mat250017p/desantos/seqquest_parallel/quest_265a.x
+cd /ocean/projects/mat250017p/jikehara/SandiaClinic25-26/projects/KarstedtCatalyst2           # update based on project location 
+mpirun /ocean/projects/mat250017p/jikehara/SandiaClinic25-26/seqquest_parallel/quest_265a.x
