@@ -15,7 +15,7 @@ ulimit -s unlimited
 # 3. Handle the library paths
 export LD_LIBRARY_PATH=$MKLROOT/lib/intel64:$LD_LIBRARY_PATH
 
-cd /ocean/projects/mat250017p/hyuan5/SandiaClinic25-26/projects/NEBCrosslinkWork/NEBanalog_a
+cd /ocean/projects/mat250017p/desantos/projects/NEBCrosslinkWork/NEBanalog_a
 
 # --- TIMER START ---
 START_TIME=$(date +%s)
@@ -25,7 +25,7 @@ echo "------------------------------------------------"
 
 # Use --overload-allowed if you really want to run 60 tasks on fewer than 60 cores
 # But for DFT (SeqQuest), it's better to run 1 task per 1 physical core.
-mpirun -np $SLURM_NTASKS --bind-to none /ocean/projects/mat250017p/hyuan5/SandiaClinic25-26/seqquest_parallel/quest_265a.x
+mpirun -np $SLURM_NTASKS --bind-to none /ocean/projects/mat250017p/desantos/seqquest_parallel/quest_265a.x
 
 
 # --- TIMER END ---
