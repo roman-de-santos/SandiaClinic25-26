@@ -3,7 +3,8 @@
 #SBATCH --output=postprocess.out
 #SBATCH --error=postprocess.err
 #SBATCH --time=00:05:00
-#SBATCH --nodes=1
+#SBATCH -p RM-shared
+#SBATCH -N 1
 #SBATCH --ntasks=1
 
 # Roman De Santos (HMC 26') [Refactored for NEB process and readability]

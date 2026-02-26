@@ -3,8 +3,9 @@
 #SBATCH --output=geom_xyz.out
 #SBATCH --error=geom_xyz.err
 #SBATCH --time=00:05:00
-#SBATCH --nodes=1
-#SBATCH --ntasks=1
+#SBATCH -p RM-shared
+#SBATCH -N 1
+#SBATCH --ntasks=10
 
 # Luis Lorenzana
 # Harvey Mudd College

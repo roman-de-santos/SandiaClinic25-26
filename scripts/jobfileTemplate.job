@@ -5,6 +5,10 @@
 #SBATCH --ntasks=10
 #SBATCH -t 9:00:00
 
+# If you encounter an error that says "sbatch: error: Batch script contains DOS line breaks (\r\n)"
+# CD into the jobfile.job directory and run:
+# $ dos2unix jobfile.job
+
 # Load Modules used by SeqQuest
 module purge
 module load gcc/10.2.0
@@ -16,7 +20,7 @@ ulimit -s unlimited
 # Handle the library paths
 export LD_LIBRARY_PATH=$MKLROOT/lib/intel64:$LD_LIBRARY_PATH
 
-cd /ocean/projects/mat250017p/desantos/projects/HalfLinkedPDMSIntermediateAnalog # UPDATE BASED ON LOCATION
+cd /ocean/projects/mat250017p/desantos/projects/HalfLinkedPDMSanalog # UPDATE BASED ON LOCATION
 
 # TIMER START
 START_TIME=$(date +%s)
