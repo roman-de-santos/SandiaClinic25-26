@@ -1,0 +1,86 @@
+do setup
+do iters
+do force
+do relax
+do post
+setup data
+title
+HalfLinkedPDMSanalog
+functional
+ PBE-SP
+spin polarization
+ 2.0
+dimension of system (0=cluster ... 3=bulk)
+ 0
+coordinates
+CARTESIAN
+scale
+ 1
+primitive lattice vectors
+  55.0000000000     0.00000000000     0.00000000000
+  0.00000000000     45.0000000000     0.00000000000
+  0.00000000000     0.00000000000     50.0000000000
+grid dimensions
+  184  150  167
+atom types
+ 4
+atom file
+ O = O.atm
+atom file
+ H = H.atm
+atom file
+ C = C.atm
+atom file
+ Si = Si.atm
+number of atoms in unit cell
+  26
+atom, type, position;
+ AT1          O                -2.1773702520   -1.0890514307    3.9016936349 
+ AT2          Si               -0.4217159578    1.1475984073    5.3930314972 
+ AT3          Si               -5.6886573566   -0.9777796114    3.7069785063 
+ AT4          C                 1.4362604838    3.0717432327    2.7745568477 
+ AT5          C                 3.0727325735    1.5380799704    1.0052478966 
+ AT6          H                 2.5680429500    4.2374039659    4.0914681128 
+ AT7          H                 4.0396473208    2.8377619874   -0.3199967456 
+ AT8          H                 4.5477897285    0.4913522901    2.0424816802 
+ AT9          Si                1.3711477927   -0.7596470334   -1.2058655520 
+ AT10         O                -0.7145898624    0.9199861822   -2.8442799159 
+ AT11         O                 3.4722040352   -2.1147174112   -3.1250088670 
+ AT12         Si                6.0778020246   -1.4959617535   -4.8186520548 
+ AT13         Si               -3.6817071951    0.7591129674   -3.9894458293 
+ AT14         H                 0.0671027503    4.2726617352    1.7873630637 
+ AT15         H                -6.8593538606    1.2028493993    5.0218357246 
+ AT16         H                -1.5980313603    3.0290795668    7.1404378976 
+ AT17         H                -5.7473064470   -3.4424853386    5.1724221644 
+ AT18         H                 1.6389214092   -0.3421966009    6.6329119089 
+ AT19         H                -3.4725731597    1.3417894177   -6.7439656895 
+ AT20         H                -4.8043129612   -1.8018206711   -3.6183361378 
+ AT21         H                -5.2510993672    2.7071337687   -2.6962767677 
+ AT22         H                 6.1466826122    1.2448632992   -5.5185238514 
+ AT23         H                 8.3384488301   -2.1292058467   -3.2587438945 
+ AT24         H                 6.0776624117   -3.1105726989   -7.1351950502 
+ AT25         H                 0.1574731656   -2.8589254071    0.2074306886 
+ AT26         H                -6.1128736290   -1.2739524212    0.9392485179 
+origin offset
+ 0 0 0
+end setup phase data
+run phase input data
+history
+ 8
+states
+ 60
+temperature
+ 0.002
+iterations
+ 300
+blend ratio
+0.100
+convergence criterion
+0.0005
+geometry relaxation
+gmethod
+ broyden
+gsteps
+ 500
+end geometry relaxation
+end run phase data
