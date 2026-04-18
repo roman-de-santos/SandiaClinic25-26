@@ -1,0 +1,1 @@
+Use the products from STEP 2 as the inputs for STEP 3

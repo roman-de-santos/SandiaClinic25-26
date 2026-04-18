@@ -1,0 +1,380 @@
+-------------------------------------------------------------------------------
+There are messages associated with the following module(s):
+-------------------------------------------------------------------------------
+
+cuda/11.1.1:
+   Warning - This module has been deprecated and is scheduled for removal.
+   Please transition to a module from the production pool instead.
+
+-------------------------------------------------------------------------------
+
+[file orca_guess/guess_restart.cpp, line 241, Process 0]: No orbitals were found in the gbw file
+
+[file orca_guess/guess_restart.cpp, line 241, Process 11]: No orbitals were found in the gbw file
+
+[file orca_guess/guess_restart.cpp, line 241, Process 13]: No orbitals were found in the gbw file
+
+[file orca_guess/guess_restart.cpp, line 241, Process 19]: No orbitals were found in the gbw file
+
+[file orca_guess/guess_restart.cpp, line 241, Process 23]: No orbitals were found in the gbw file
+
+[e003:104067] *** Process received signal ***
+[e003:104067] Signal: Aborted (6)
+[e003:104067] Signal code:  (-6)
+[file orca_guess/guess_restart.cpp, line 241, Process 8]: No orbitals were found in the gbw file
+
+[e003:104039] *** Process received signal ***
+[e003:104039] Signal: Aborted (6)
+[e003:104039] Signal code:  (-6)
+[file orca_guess/guess_restart.cpp, line 241, Process 6]: No orbitals were found in the gbw file
+
+[e003:104037] *** Process received signal ***
+[e003:104037] Signal: Aborted (6)
+[e003:104037] Signal code:  (-6)
+[file orca_guess/guess_restart.cpp, line 241, Process 2]: No orbitals were found in the gbw file
+
+[e003:104033] *** Process received signal ***
+[e003:104033] Signal: Aborted (6)
+[e003:104033] Signal code:  (-6)
+[file orca_guess/guess_restart.cpp, line 241, Process 20]: No orbitals were found in the gbw file
+
+[e003:104058] *** Process received signal ***
+[e003:104058] Signal: Aborted (6)
+[e003:104058] Signal code:  (-6)
+[file orca_guess/guess_restart.cpp, line 241, Process 9]: No orbitals were found in the gbw file
+
+[e003:104040] *** Process received signal ***
+[e003:104040] Signal: Aborted (6)
+[e003:104040] Signal code:  (-6)
+[file orca_guess/guess_restart.cpp, line 241, Process 5]: No orbitals were found in the gbw file
+
+[e003:104036] *** Process received signal ***
+[e003:104036] Signal: Aborted (6)
+[e003:104036] Signal code:  (-6)
+[file orca_guess/guess_restart.cpp, line 241, Process 18]: No orbitals were found in the gbw file
+
+[e003:104054] *** Process received signal ***
+[e003:104054] Signal: Aborted (6)
+[e003:104054] Signal code:  (-6)
+[file orca_guess/guess_restart.cpp, line 241, Process 16]: No orbitals were found in the gbw file
+
+[e003:104052] *** Process received signal ***
+[e003:104052] Signal: Aborted (6)
+[e003:104052] Signal code:  (-6)
+[file orca_guess/guess_restart.cpp, line 241, Process 1]: No orbitals were found in the gbw file
+
+[e003:104032] *** Process received signal ***
+[e003:104032] Signal: Aborted (6)
+[e003:104032] Signal code:  (-6)
+[file orca_guess/guess_restart.cpp, line 241, Process 3]: No orbitals were found in the gbw file
+
+[e003:104034] *** Process received signal ***
+[e003:104034] Signal: Aborted (6)
+[e003:104034] Signal code:  (-6)
+[file orca_guess/guess_restart.cpp, line 241, Process 4]: No orbitals were found in the gbw file
+
+[e003:104035] *** Process received signal ***
+[e003:104035] Signal: Aborted (6)
+[e003:104035] Signal code:  (-6)
+[file orca_guess/guess_restart.cpp, line 241, Process 7]: No orbitals were found in the gbw file
+
+[e003:104038] *** Process received signal ***
+[e003:104038] Signal: Aborted (6)
+[e003:104038] Signal code:  (-6)
+[e003:104031] *** Process received signal ***
+[e003:104031] Signal: Aborted (6)
+[e003:104031] Signal code:  (-6)
+[e003:104047] *** Process received signal ***
+[e003:104047] Signal: Aborted (6)
+[e003:104047] Signal code:  (-6)
+[file orca_guess/guess_restart.cpp, line 241, Process 15]: No orbitals were found in the gbw file
+
+[e003:104049] *** Process received signal ***
+[e003:104049] Signal: Aborted (6)
+[e003:104049] Signal code:  (-6)
+[file orca_guess/guess_restart.cpp, line 241, Process 12]: No orbitals were found in the gbw file
+
+[e003:104045] *** Process received signal ***
+[e003:104045] Signal: Aborted (6)
+[e003:104045] Signal code:  (-6)
+[e003:104042] *** Process received signal ***
+[e003:104042] Signal: Aborted (6)
+[e003:104042] Signal code:  (-6)
+[file orca_guess/guess_restart.cpp, line 241, Process 22]: No orbitals were found in the gbw file
+
+[e003:104066] *** Process received signal ***
+[e003:104066] Signal: Aborted (6)
+[e003:104066] Signal code:  (-6)
+[e003:104057] *** Process received signal ***
+[e003:104057] Signal: Aborted (6)
+[e003:104057] Signal code:  (-6)
+[file orca_guess/guess_restart.cpp, line 241, Process 21]: No orbitals were found in the gbw file
+
+[e003:104061] *** Process received signal ***
+[e003:104061] Signal: Aborted (6)
+[e003:104061] Signal code:  (-6)
+[file orca_guess/guess_restart.cpp, line 241, Process 10]: No orbitals were found in the gbw file
+
+[e003:104041] *** Process received signal ***
+[e003:104041] Signal: Aborted (6)
+[e003:104041] Signal code:  (-6)
+[file orca_guess/guess_restart.cpp, line 241, Process 14]: No orbitals were found in the gbw file
+
+[e003:104048] *** Process received signal ***
+[e003:104048] Signal: Aborted (6)
+[e003:104048] Signal code:  (-6)
+[file orca_guess/guess_restart.cpp, line 241, Process 17]: No orbitals were found in the gbw file
+
+[e003:104053] *** Process received signal ***
+[e003:104053] Signal: Aborted (6)
+[e003:104053] Signal code:  (-6)
+[e003:104038] [ 0] /lib64/libc.so.6(+0x4e5b0)[0x14da712ad5b0]
+[e003:104038] [ 1] [e003:104034] [ 0] /lib64/libc.so.6(+0x4e5b0)[0x154d4a1475b0]
+[e003:104034] [ 1] /lib64/libc.so.6(gsignal+0x10f)[0x154d4a14752f]
+[e003:104034] [ 2] [e003:104032] [ 0] /lib64/libc.so.6(+0x4e5b0)[0x145844c585b0]
+[e003:104032] [ 1] [e003:104039] [ 0] /lib64/libc.so.6(+0x4e5b0)[0x14e32f4625b0]
+[e003:104039] [ 1] [e003:104031] [ 0] /lib64/libc.so.6(+0x4e5b0)[0x146bdbdba5b0]
+[e003:104031] [ 1] [e003:104042] [ 0] /lib64/libc.so.6(+0x4e5b0)[0x15429ba625b0]
+[e003:104042] [ 1] [e003:104049] [ 0] /lib64/libc.so.6(+0x4e5b0)[0x150814eff5b0]
+[e003:104049] [ 1] [e003:104061] [ 0] /lib64/libc.so.6(+0x4e5b0)[0x1546a9bf75b0]
+[e003:104061] [ 1] [e003:104041] [ 0] /lib64/libc.so.6(gsignal+0x10f)[0x14da712ad52f]
+[e003:104038] [ 2] /lib64/libc.so.6(abort+0x127)[0x14da71280e65]
+[e003:104038] [ 3] /lib64/libc.so.6(gsignal+0x10f)[0x145844c5852f]
+[e003:104032] [ 2] [e003:104040] [ 0] /lib64/libc.so.6(gsignal+0x10f)[0x14e32f46252f]
+[e003:104039] [ 2] /lib64/libc.so.6(abort+0x127)[0x14e32f435e65]
+[e003:104039] /lib64/libc.so.6(gsignal+0x10f)[0x146bdbdba52f]
+[e003:104031] [ 2] [e003:104053] [ 0] /lib64/libc.so.6(abort+0x127)[0x154d4a11ae65]
+[e003:104034] [ 3] [e003:104066] [ 0] /lib64/libc.so.6(+0x4e5b0)[0x14d2cd6ae5b0]
+[e003:104066] [ 1] /lib64/libc.so.6(gsignal+0x10f)[0x14d2cd6ae52f]
+[e003:104066] [ 2] /lib64/libc.so.6(abort+0x127)[0x14d2cd681e65]
+[e003:104066] [ 3] [e003:104067] [ 0] /lib64/libc.so.6(+0x4e5b0)[0x14d8496865b0]
+[e003:104067] [ 1] /lib64/libc.so.6(gsignal+0x10f)[0x14d84968652f]
+[e003:104067] [ 2] /lib64/libc.so.6(abort+0x127)[0x14d849659e65]
+[e003:104067] [ 3] /lib64/libc.so.6(gsignal+0x10f)[0x15429ba6252f]
+[e003:104042] [ 2] /lib64/libc.so.6(abort+0x127)[0x15429ba35e65]
+[e003:104042] [ 3] /lib64/libc.so.6(+0x4e5b0)[0x14a3851b55b0]
+[e003:104041] [ 1] /lib64/libc.so.6(gsignal+0x10f)[0x14a3851b552f]
+[e003:104041] [ 2] /lib64/libc.so.6(abort+0x127)[0x14a385188e65]
+[e003:104041] [ 3] /lib64/libc.so.6(abort+0x127)[0x145844c2be65]
+[e003:104032] [ 3] [e003:104058] [ 0] /lib64/libc.so.6(+0x4e5b0)[0x1481b11fb5b0]
+[e003:104058] [ 1] /lib64/libc.so.6(gsignal+0x10f)[0x1481b11fb52f]
+[e003:104058] [ 2] /lib64/libc.so.6(abort+0x127)[0x1481b11cee65]
+[e003:104058] [ 3] /lib64/libc.so.6(gsignal+0x10f)[0x150814eff52f]
+[e003:104049] [ 2] /lib64/libc.so.6(abort+0x127)[0x150814ed2e65]
+[e003:104049] [ 3] /lib64/libc.so.6(gsignal+0x10f)[0x1546a9bf752f]
+[e003:104061] [ 2] /lib64/libc.so.6(abort+0x127)[0x1546a9bcae65]
+[e003:104061] [ 3] [ 3] /lib64/libc.so.6(abort+0x127)[0x146bdbd8de65]
+[e003:104031] [ 3] /lib64/libc.so.6(+0x4e5b0)[0x152506f4e5b0]
+[e003:104040] [ 1] /lib64/libc.so.6(gsignal+0x10f)[0x152506f4e52f]
+[e003:104040] [ 2] /lib64/libc.so.6(abort+0x127)[0x152506f21e65]
+[e003:104040] [ 3] [e003:104045] [ 0] /lib64/libc.so.6(+0x4e5b0)[0x1466f3a275b0]
+[e003:104045] [ 1] /lib64/libc.so.6(gsignal+0x10f)[0x1466f3a2752f]
+[e003:104045] [ 2] /lib64/libc.so.6(abort+0x127)[0x1466f39fae65]
+[e003:104045] [ 3] [e003:104037] [ 0] /lib64/libc.so.6(+0x4e5b0)[0x153c993375b0]
+[e003:104037] [ 1] /lib64/libc.so.6(gsignal+0x10f)[0x153c9933752f]
+[e003:104037] [ 2] /lib64/libc.so.6(abort+0x127)[0x153c9930ae65]
+[e003:104037] [ 3] /lib64/libc.so.6(+0x4e5b0)[0x15514e16e5b0]
+[e003:104053] [ 1] /lib64/libc.so.6(gsignal+0x10f)[0x15514e16e52f]
+[e003:104053] [ 2] /lib64/libc.so.6(abort+0x127)[0x15514e141e65]
+[e003:104053] [ 3] [e003:104048] [ 0] /lib64/libc.so.6(+0x4e5b0)[0x154e9698e5b0]
+[e003:104048] [ 1] /lib64/libc.so.6(gsignal+0x10f)[0x154e9698e52f]
+[e003:104048] [ 2] /lib64/libc.so.6(abort+0x127)[0x154e96961e65]
+[e003:104048] [ 3] [e003:104047] [ 0] /lib64/libc.so.6(+0x4e5b0)[0x14b40ca3d5b0]
+[e003:104047] [ 1] /lib64/libc.so.6(gsignal+0x10f)[0x14b40ca3d52f]
+[e003:104047] [ 2] /lib64/libc.so.6(abort+0x127)[0x14b40ca10e65]
+[e003:104047] [ 3] [e003:104057] [ 0] /lib64/libc.so.6(+0x4e5b0)[0x150cbb69c5b0]
+[e003:104057] [ 1] /lib64/libc.so.6(gsignal+0x10f)[0x150cbb69c52f]
+[e003:104057] [ 2] /lib64/libc.so.6(abort+0x127)[0x150cbb66fe65]
+[e003:104057] [ 3] [e003:104035] [ 0] /lib64/libc.so.6(+0x4e5b0)[0x1494cb93f5b0]
+[e003:104035] [ 1] /lib64/libc.so.6(gsignal+0x10f)[0x1494cb93f52f]
+[e003:104035] [ 2] /lib64/libc.so.6(abort+0x127)[0x1494cb912e65]
+[e003:104035] [ 3] [e003:104052] [ 0] /lib64/libc.so.6(+0x4e5b0)[0x14c72e85b5b0]
+[e003:104052] [ 1] /lib64/libc.so.6(gsignal+0x10f)[0x14c72e85b52f]
+[e003:104052] [ 2] /lib64/libc.so.6(abort+0x127)[0x14c72e82ee65]
+[e003:104052] [ 3] [e003:104036] [ 0] /lib64/libc.so.6(+0x4e5b0)[0x148ad33e35b0]
+[e003:104036] [ 1] /lib64/libc.so.6(gsignal+0x10f)[0x148ad33e352f]
+[e003:104036] [ 2] /lib64/libc.so.6(abort+0x127)[0x148ad33b6e65]
+[e003:104036] [ 3] [e003:104033] [ 0] /lib64/libc.so.6(+0x4e5b0)[0x151c9502c5b0]
+[e003:104033] [ 1] /lib64/libc.so.6(gsignal+0x10f)[0x151c9502c52f]
+[e003:104033] [ 2] /lib64/libc.so.6(abort+0x127)[0x151c94fffe65]
+[e003:104033] [ 3] [e003:104054] [ 0] /lib64/libc.so.6(+0x4e5b0)[0x14ff5fd6f5b0]
+[e003:104054] [ 1] /lib64/libc.so.6(gsignal+0x10f)[0x14ff5fd6f52f]
+[e003:104054] [ 2] /lib64/libc.so.6(abort+0x127)[0x14ff5fd42e65]
+[e003:104054] [ 3] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/lib/liborca_tools_6_1_1_avx2_mpi.so.6(_Z9PAL_Aborti+0x20)[0x14e3348e8570]
+[e003:104039] [ 4] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x43f4e1]
+[e003:104039] [ 5] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x42413c]
+[e003:104039] [ 6] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x4513d6]
+[e003:104039] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/lib/liborca_tools_6_1_1_avx2_mpi.so.6(_Z9PAL_Aborti+0x20)[0x1494d0dc5570]
+[e003:104035] [ 4] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x43f4e1]
+[e003:104035] [ 5] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x42413c]
+[e003:104035] [ 6] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x4513d6]
+[e003:104035] [ 7] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/lib/liborca_tools_6_1_1_avx2_mpi.so.6(_Z9PAL_Aborti+0x20)[0x153c9e7bd570]
+[e003:104037] [ 4] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x43f4e1]
+[e003:104037] [ 5] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x42413c]
+[e003:104037] [ 6] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x4513d6]
+[e003:104037] [ 7] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/lib/liborca_tools_6_1_1_avx2_mpi.so.6(_Z9PAL_Aborti+0x20)[0x1546af07d570]
+[e003:104061] [ 4] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x43f4e1]
+[e003:104061] [ 5] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x42413c]
+[e003:104061] [ 6] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x4513d6]
+[e003:104061] [ 7] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/lib/liborca_tools_6_1_1_avx2_mpi.so.6(_Z9PAL_Aborti+0x20)[0x1466f8ead570]
+[e003:104045] [ 4] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x43f4e1]
+[e003:104045] [ 5] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x42413c]
+[e003:104045] [ 6] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x4513d6]
+[e003:104045] [ 7] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/lib/liborca_tools_6_1_1_avx2_mpi.so.6(_Z9PAL_Aborti+0x20)[0x154d4f5cd570]
+[e003:104034] [ 4] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x43f4e1]
+[e003:104034] [ 5] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x42413c]
+[e003:104034] [ 6] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x4513d6]
+[e003:104034] [ 7] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/lib/liborca_tools_6_1_1_avx2_mpi.so.6(_Z9PAL_Aborti+0x20)[0x14584a0de570]
+[e003:104032] [ 4] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x43f4e1]
+[e003:104032] [ 5] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x42413c]
+[e003:104032] [ 6] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x4513d6]
+[e003:104032] [ 7] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/lib/liborca_tools_6_1_1_avx2_mpi.so.6(_Z9PAL_Aborti+0x20)[0x14b411ec3570]
+[e003:104047] [ 4] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x43f4e1]
+[e003:104047] [ 5] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x42413c]
+[e003:104047] [ 6] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x4513d6]
+[e003:104047] [ 7] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/lib/liborca_tools_6_1_1_avx2_mpi.so.6(_Z9PAL_Aborti+0x20)[0x14a38a63b570]
+[e003:104041] [ 4] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x43f4e1]
+[e003:104041] [ 5] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x42413c]
+[e003:104041] [ 6] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x4513d6]
+[e003:104041] [ 7] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/lib/liborca_tools_6_1_1_avx2_mpi.so.6(_Z9PAL_Aborti+0x20)[0x1481b6681570]
+[e003:104058] [ 4] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x43f4e1]
+[e003:104058] [ 5] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x42413c]
+[e003:104058] [ 6] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x4513d6]
+[e003:104058] [ 7] /lib64/libc.so.6(__libc_start_main+0xe5)[0x1481b11e77e5]
+[e003:104058] [ 8] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x41a8a6]
+[e003:104058] *** End of error message ***
+/ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/lib/liborca_tools_6_1_1_avx2_mpi.so.6(_Z9PAL_Aborti+0x20)[0x1551535f4570]
+[e003:104053] [ 4] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x43f4e1]
+[e003:104053] [ 5] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x42413c]
+[e003:104053] [ 6] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x4513d6]
+[e003:104053] [ 7] /lib64/libc.so.6(__libc_start_main+0xe5)[0x15514e15a7e5]
+[e003:104053] [ 8] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x41a8a6]
+[e003:104053] *** End of error message ***
+/ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/lib/liborca_tools_6_1_1_avx2_mpi.so.6(_Z9PAL_Aborti+0x20)[0x154e9be14570]
+[e003:104048] [ 4] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x43f4e1]
+[e003:104048] [ 5] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x42413c]
+[e003:104048] [ 6] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x4513d6]
+[e003:104048] [ 7] /lib64/libc.so.6(__libc_start_main+0xe5)[0x154e9697a7e5]
+[e003:104048] [ 8] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x41a8a6]
+[e003:104048] *** End of error message ***
+/ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/lib/liborca_tools_6_1_1_avx2_mpi.so.6(_Z9PAL_Aborti+0x20)[0x15250c3d4570]
+[e003:104040] [ 4] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x43f4e1]
+[e003:104040] [ 5] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x42413c]
+[e003:104040] [ 6] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x4513d6]
+[e003:104040] [ 7] /lib64/libc.so.6(__libc_start_main+0xe5)[0x152506f3a7e5]
+[e003:104040] [ 8] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x41a8a6]
+[e003:104040] *** End of error message ***
+/ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/lib/liborca_tools_6_1_1_avx2_mpi.so.6(_Z9PAL_Aborti+0x20)[0x1542a0ee8570]
+[e003:104042] [ 4] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x43f4e1]
+[e003:104042] [ 5] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x42413c]
+[e003:104042] [ 6] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x4513d6]
+[e003:104042] [ 7] /lib64/libc.so.6(__libc_start_main+0xe5)[0x15429ba4e7e5]
+[e003:104042] [ 8] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x41a8a6]
+[e003:104042] *** End of error message ***
+/ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/lib/liborca_tools_6_1_1_avx2_mpi.so.6(_Z9PAL_Aborti+0x20)[0x14d2d2b34570]
+[e003:104066] [ 4] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x43f4e1]
+[e003:104066] [ 5] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x42413c]
+[e003:104066] [ 6] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x4513d6]
+[e003:104066] [ 7] /lib64/libc.so.6(__libc_start_main+0xe5)[0x14d2cd69a7e5]
+[e003:104066] [ 8] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x41a8a6]
+[e003:104066] *** End of error message ***
+/ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/lib/liborca_tools_6_1_1_avx2_mpi.so.6(_Z9PAL_Aborti+0x20)[0x15081a385570]
+[e003:104049] [ 4] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x43f4e1]
+[e003:104049] [ 5] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x42413c]
+[e003:104049] [ 6] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x4513d6]
+[e003:104049] [ 7] /lib64/libc.so.6(__libc_start_main+0xe5)[0x150814eeb7e5]
+[e003:104049] [ 8] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x41a8a6]
+[e003:104049] *** End of error message ***
+/ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/lib/liborca_tools_6_1_1_avx2_mpi.so.6(_Z9PAL_Aborti+0x20)[0x146be1240570]
+[e003:104031] [ 4] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x43f4e1]
+[e003:104031] [ 5] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x42413c]
+[e003:104031] [ 6] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x4513d6]
+[e003:104031] [ 7] /lib64/libc.so.6(__libc_start_main+0xe5)[0x146bdbda67e5]
+[e003:104031] [ 8] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x41a8a6]
+[e003:104031] *** End of error message ***
+/ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/lib/liborca_tools_6_1_1_avx2_mpi.so.6(_Z9PAL_Aborti+0x20)[0x14d84eb0c570]
+[e003:104067] [ 4] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x43f4e1]
+[e003:104067] [ 5] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x42413c]
+[e003:104067] [ 6] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x4513d6]
+[e003:104067] [ 7] /lib64/libc.so.6(__libc_start_main+0xe5)[0x14d8496727e5]
+[e003:104067] [ 8] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x41a8a6]
+[e003:104067] *** End of error message ***
+/ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/lib/liborca_tools_6_1_1_avx2_mpi.so.6(_Z9PAL_Aborti+0x20)[0x150cc0b22570]
+[e003:104057] [ 4] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x43f4e1]
+[e003:104057] [ 5] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x42413c]
+[e003:104057] [ 6] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x4513d6]
+[e003:104057] [ 7] /lib64/libc.so.6(__libc_start_main+0xe5)[0x150cbb6887e5]
+[e003:104057] [ 8] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x41a8a6]
+[e003:104057] *** End of error message ***
+/ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/lib/liborca_tools_6_1_1_avx2_mpi.so.6(_Z9PAL_Aborti+0x20)[0x148ad8869570]
+[e003:104036] [ 4] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x43f4e1]
+[e003:104036] [ 5] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x42413c]
+[e003:104036] [ 6] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x4513d6]
+[e003:104036] [ 7] /lib64/libc.so.6(__libc_start_main+0xe5)[0x148ad33cf7e5]
+[e003:104036] [ 8] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x41a8a6]
+[e003:104036] *** End of error message ***
+/ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/lib/liborca_tools_6_1_1_avx2_mpi.so.6(_Z9PAL_Aborti+0x20)[0x14da76733570]
+[e003:104038] [ 4] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x43f4e1]
+[e003:104038] [ 5] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x42413c]
+[e003:104038] [ 6] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x4513d6]
+[e003:104038] [ 7] /lib64/libc.so.6(__libc_start_main+0xe5)[0x14da712997e5]
+[e003:104038] [ 8] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x41a8a6]
+[e003:104038] *** End of error message ***
+/ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/lib/liborca_tools_6_1_1_avx2_mpi.so.6(_Z9PAL_Aborti+0x20)[0x151c9a4b2570]
+[e003:104033] [ 4] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x43f4e1]
+[e003:104033] [ 5] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x42413c]
+[e003:104033] [ 6] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x4513d6]
+[e003:104033] [ 7] /lib64/libc.so.6(__libc_start_main+0xe5)[0x151c950187e5]
+[e003:104033] [ 8] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x41a8a6]
+[e003:104033] *** End of error message ***
+/ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/lib/liborca_tools_6_1_1_avx2_mpi.so.6(_Z9PAL_Aborti+0x20)[0x14c733ce1570]
+[e003:104052] [ 4] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x43f4e1]
+[e003:104052] [ 5] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x42413c]
+[e003:104052] [ 6] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x4513d6]
+[e003:104052] [ 7] /lib64/libc.so.6(__libc_start_main+0xe5)[0x14c72e8477e5]
+[e003:104052] [ 8] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x41a8a6]
+[e003:104052] *** End of error message ***
+[ 7] /lib64/libc.so.6(__libc_start_main+0xe5)[0x14e32f44e7e5]
+[e003:104039] [ 8] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x41a8a6]
+[e003:104039] *** End of error message ***
+/lib64/libc.so.6(__libc_start_main+0xe5)[0x1494cb92b7e5]
+[e003:104035] [ 8] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x41a8a6]
+[e003:104035] *** End of error message ***
+/lib64/libc.so.6(__libc_start_main+0xe5)[0x153c993237e5]
+[e003:104037] [ 8] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x41a8a6]
+[e003:104037] *** End of error message ***
+/lib64/libc.so.6(__libc_start_main+0xe5)[0x1546a9be37e5]
+[e003:104061] [ 8] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x41a8a6]
+[e003:104061] *** End of error message ***
+/lib64/libc.so.6(__libc_start_main+0xe5)[0x154d4a1337e5]
+[e003:104034] [ 8] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x41a8a6]
+[e003:104034] *** End of error message ***
+/lib64/libc.so.6(__libc_start_main+0xe5)[0x145844c447e5]
+[e003:104032] [ 8] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x41a8a6]
+[e003:104032] *** End of error message ***
+/lib64/libc.so.6(__libc_start_main+0xe5)[0x1466f3a137e5]
+[e003:104045] [ 8] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x41a8a6]
+[e003:104045] *** End of error message ***
+/lib64/libc.so.6(__libc_start_main+0xe5)[0x14b40ca297e5]
+[e003:104047] [ 8] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x41a8a6]
+[e003:104047] *** End of error message ***
+/lib64/libc.so.6(__libc_start_main+0xe5)[0x14a3851a17e5]
+[e003:104041] [ 8] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x41a8a6]
+[e003:104041] *** End of error message ***
+/ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/lib/liborca_tools_6_1_1_avx2_mpi.so.6(_Z9PAL_Aborti+0x20)[0x14ff651f5570]
+[e003:104054] [ 4] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x43f4e1]
+[e003:104054] [ 5] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x42413c]
+[e003:104054] [ 6] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x4513d6]
+[e003:104054] [ 7] /lib64/libc.so.6(__libc_start_main+0xe5)[0x14ff5fd5b7e5]
+[e003:104054] [ 8] /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi[0x41a8a6]
+[e003:104054] *** End of error message ***
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 18 with PID 104054 on node e003 exited on signal 6 (Aborted).
+--------------------------------------------------------------------------
+[file orca_tools/qcmsg.cpp, line 394]: 
+  .... aborting the run
+
