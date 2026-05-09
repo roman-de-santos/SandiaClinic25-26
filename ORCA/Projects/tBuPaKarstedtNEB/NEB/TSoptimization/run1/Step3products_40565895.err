@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------
+There are messages associated with the following module(s):
+-------------------------------------------------------------------------------
+
+cuda/11.1.1:
+   Warning - This module has been deprecated and is scheduled for removal.
+   Please transition to a module from the production pool instead.
+
+-------------------------------------------------------------------------------
+
+slurmstepd: error: *** JOB 40565895 ON e002 CANCELLED AT 2026-05-04T12:47:28 ***
