@@ -1,0 +1,28 @@
+-------------------------------------------------------------------------------
+There are messages associated with the following module(s):
+-------------------------------------------------------------------------------
+
+cuda/11.1.1:
+   Warning - This module has been deprecated and is scheduled for removal.
+   Please transition to a module from the production pool instead.
+
+-------------------------------------------------------------------------------
+
+[r384.ib.bridges2.psc.edu:91440] pml_ucx.c:419  Error: ucp_ep_create(proc=2) failed: Input/output error
+--------------------------------------------------------------------------
+It looks like MPI_INIT failed for some reason; your parallel process is
+likely to abort.  There are many reasons that a parallel process can
+fail during MPI_INIT; some of which are due to configuration or environment
+problems.  This failure appears to be an internal failure; here's some
+additional information (which may only be relevant to an Open MPI
+developer):
+
+  PML add procs failed
+  --> Returned "Error" (-1) instead of "Success" (0)
+--------------------------------------------------------------------------
+[r384:91440] *** An error occurred in MPI_Init
+[r384:91440] *** reported by process [2688483329,1]
+[r384:91440] *** on a NULL communicator
+[r384:91440] *** Unknown error
+[r384:91440] *** MPI_ERRORS_ARE_FATAL (processes in this communicator will now abort,
+[r384:91440] ***    and potentially your MPI job)

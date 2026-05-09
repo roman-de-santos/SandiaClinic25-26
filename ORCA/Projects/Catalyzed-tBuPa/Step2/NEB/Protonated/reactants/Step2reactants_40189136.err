@@ -1,0 +1,21 @@
+-------------------------------------------------------------------------------
+There are messages associated with the following module(s):
+-------------------------------------------------------------------------------
+
+cuda/11.1.1:
+   Warning - This module has been deprecated and is scheduled for removal.
+   Please transition to a module from the production pool instead.
+
+-------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 4 with PID 23753 on node r208 exited on signal 9 (Killed).
+--------------------------------------------------------------------------
+[file orca_tools/qcmsg.cpp, line 394]: 
+  .... aborting the run
+
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=40189136.batch. Some of your processes may have been killed by the cgroup out-of-memory handler.
