@@ -1,7 +1,9 @@
-! RKS PBE def2-SVP Opt Freq
+! RKS PBE def2-SVP Opt Freq MOREAD
 
-%pal nprocs 5 end
-%maxcore 3000
+%pal nprocs 24 end
+%maxcore 6000
+
+%moinp "my_molecule.gbw"
 
 %geom
   MaxIter 500

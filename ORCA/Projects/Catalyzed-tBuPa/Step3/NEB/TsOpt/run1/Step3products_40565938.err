@@ -1,0 +1,13 @@
+-------------------------------------------------------------------------------
+There are messages associated with the following module(s):
+-------------------------------------------------------------------------------
+
+cuda/11.1.1:
+   Warning - This module has been deprecated and is scheduled for removal.
+   Please transition to a module from the production pool instead.
+
+-------------------------------------------------------------------------------
+
+[LOG_CAT_P2P] failed to init ucx
+[e002.ib.bridges2.psc.edu:104274] Error: coll_hcoll_module.c:310 - mca_coll_hcoll_comm_query() Hcol library init failed
+slurmstepd: error: *** JOB 40565938 ON e002 CANCELLED AT 2026-05-04T12:08:42 DUE TO TIME LIMIT ***

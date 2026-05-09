@@ -1,0 +1,1767 @@
+
+                                 *****************
+                                 * O   R   C   A *
+                                 *****************
+
+                                            #,                                       
+                                            ###                                      
+                                            ####                                     
+                                            #####                                    
+                                            ######                                   
+                                           ########,                                 
+                                     ,,################,,,,,                         
+                               ,,#################################,,                 
+                          ,,##########################################,,             
+                       ,#########################################, ''#####,          
+                    ,#############################################,,   '####,        
+                  ,##################################################,,,,####,       
+                ,###########''''           ''''###############################       
+              ,#####''   ,,,,##########,,,,          '''####'''          '####       
+            ,##' ,,,,###########################,,,                        '##       
+           ' ,,###''''                  '''############,,,                           
+         ,,##''                                '''############,,,,        ,,,,,,###''
+      ,#''                                            '''#######################'''  
+     '                                                          ''''####''''         
+             ,#######,   #######,   ,#######,      ##                                
+            ,#'     '#,  ##    ##  ,#'     '#,    #''#        ,####,    ,#,          
+            ##       ##  ##   ,#'  ##            #'  '#       #'       ,# #          
+            ##       ##  #######   ##           ,######,      #####,      #          
+            '#,     ,#'  ##    ##  '#,     ,#' ,#      #,     #,   #      #          
+             '#######'   ##     ##  '#######'  #'      '#     '####' #    #          
+
+
+
+                #########################################################
+                #                        -***-                          #
+                #          Department of theory and spectroscopy        #
+                #                                                       #
+                #                      Frank Neese                      #
+                #                                                       #
+                #     Directorship, Architecture, Infrastructure        #
+                #                    SHARK, DRIVERS                     #
+                #        Core code/Algorithms in most modules           #
+                #                                                       #
+                #        Max Planck Institute fuer Kohlenforschung      #
+                #                Kaiser Wilhelm Platz 1                 #
+                #                 D-45470 Muelheim/Ruhr                 #
+                #                      Germany                          #
+                #                                                       #
+                #                  All rights reserved                  #
+                #                        -***-                          #
+                #########################################################
+
+
+                         Program Version 6.1.1  -  RELEASE   -
+                                (GIT: $487d211c$)
+                          ($2025-11-21 10:33:24 +0100$)
+
+
+ With contributions from (in alphabetic order):
+[Max-Planck-Institut fuer Kohlenforschung]                               
+  Daniel Aravena         : Magnetic Suceptibility                        
+  Michael Atanasov       : Ab Initio Ligand Field Theory (pilot matlab implementation)
+  Alexander A. Auer      : GIAO ZORA, VPT2 properties, NMR spectrum      
+  Ute Becker             : All parallelization in ORCA, NUMFREQ, NUMCALC 
+  Giovanni Bistoni       : ED, misc. LED, open-shell LED, HFLD           
+  Dmytro Bykov           : pre 5.0 version of the SCF Hessian            
+  Marcos Casanova-Páez   : Triplet and SCS-CIS(D). UHF-(DLPNO)-IP/EA/STEOM-CCSD. UHF-CVS-IP/STEOM-CCSD   
+  Vijay G. Chilkuri      : MRCI spin determinant printing, contributions to CSF-ICE 
+  Pauline Colinet        : FMM embedding                                 
+  Dipayan Datta          : RHF DLPNO-CCSD density                        
+  Achintya Kumar Dutta   : EOM-CC, STEOM-CC                              
+  Nicolas Foglia         : Exact transition moments, OPA infrastructure, MCD improvements    
+  Dmitry Ganyushin       : Spin-Orbit,Spin-Spin,Magnetic field MRCI      
+  Miquel Garcia-Rates    : C-PCM and meta-GGA Hessian, CCSD/C-PCM, Gaussian charge scheme 
+  Tiago L. C. Gouveia    : GS-ROHF, GS-ROCIS                             
+  Yang Guo               : DLPNO-NEVPT2, F12-NEVPT2, CIM, IAO-localization        
+  Andreas Hansen         : Spin unrestricted coupled pair/coupled cluster methods 
+  Ingolf Harden          : AUTO-CI MPn and infrastructure                
+  Benjamin Helmich-Paris : MC-RPA, TRAH-(SCF,CASSCF), AVAS, COSX integrals, SCF dyn. polar., MC-PDFT, srDFT 
+  Lee Huntington         : MR-EOM, pCC                                   
+  Robert Izsak           : Overlap fitted RIJCOSX, COSX-SCS-MP3, EOM     
+  Riya Kayal             : Wick's Theorem for AUTO-CI, AUTO-CI UHF-CCSDT 
+  Emily Kempfer          : AUTO-CI RHF CISDT and CCSDT, approximate NEVPT4
+  Christian Kollmar      : KDIIS, OOCD, Brueckner-CCSD(T), CCSD density, CASPT2, CASPT2-K, improved NEVPT2 
+  Axel Koslowski         : Symmetry handling                             
+  Simone Kossmann        : meta-GGA functionals, TD-DFT gradient, OOMP2, (MP2 Hessian; deprecated post 5.0) 
+  Lucas Lang             : DCDCAS, Hyperfine gauge corrections, ICE-SOC+SSC
+  Marvin Lechner         : AUTO-CI (C++ implementation), FIC-MRCC        
+  Spencer Leger          : CASSCF response                               
+  Dagmar Lenk            : GEPOL surface, SMD, ORCA-2-JSON               
+  Dimitrios Liakos       : Extrapolation schemes; Compound Job, Property file
+  Dimitrios Manganas     : Further ROCIS development; embedding schemes. LFT, Crystal Embedding 
+  Dimitrios Pantazis     : SARC Basis sets                               
+  Anastasios Papadopoulos: AUTO-CI, single reference methods and gradients 
+  Taras Petrenko         : pre 6.0 DFT Hessian and TD-DFT gradient,  ECA, NRVS 
+  Petra Pikulova         : Analytic Raman intensities                    
+  Peter Pinski           : DLPNO-MP2, DLPNO-MP2 Gradient                 
+  Shashank Vittal Rao    : ES-AILFT, MagRelax                            
+  Christoph Reimann      : Effective Core Potentials                     
+  Marius Retegan         : Local ZFS, SOC                                
+  Christoph Riplinger    : Optimizer, TS searches, QM/MM, DLPNO-CCSD(T), (RO)-DLPNO pert. Triples 
+  Michael Roemelt        : Original ROCIS implementation, recursive CI coupling coefficients
+  Masaaki Saitow         : Open-shell DLPNO-CCSD energy and density      
+  Barbara Sandhoefer     : DKH picture change effects                    
+  Yorick L. A. Schmerwitz: GMF and freeze-and-release deltaSCF, NEB S-IDPP initial path                    
+  Kantharuban Sivalingam : CASSCF convergence/infrastructure, NEVPT2, NEVPT3, NEVPT4(SD), FIC-MRCI and CEPA variants
+  Bernardo de Souza      : ESD, SOC TD-DFT                               
+  Georgi L. Stoychev     : AutoAux, RI-MP2 NMR, DLPNO-MP2 response, X2C  
+  Van Anh Tran           : RI-MP2 g-tensors                              
+  Willem Van den Heuvel  : Paramagnetic NMR                              
+  Zikuan Wang            : NOTCH, Electric field optimization            
+  Frank Wennmohs         : Technical directorship and infrastructure     
+  Hang Xu                : AUTO-CI-Response properties                   
+                                                                         
+[FACCTs GmbH]                                                            
+  Markus Bursch, Nicolas Foglia, Miquel Garcia-Rates, Ingolf Harden, Hagen Neugebauer, Anastasios Papadopoulos, 
+  Christoph Riplinger, Bernardo de Souza, Georgi L. Stoychev                                                    
+                                                                 
+  APM, various basis sets, CI-OPT, improved COSX, DLPNO-Multilevel,           
+  DOCKER, DRACO, updates on ESD, Fragmentator, GOAT, IRC, LR-CPCM, L-BFGS, MBIS, meta-GGA TD-DFT gradient, ML-optimized integration grids, 
+  MM, NACMEs, nearIR, NEB, NEB-TS, NL-DFT gradient (VV10), 2- and 3-layer-ONIOM, interface openCOSMO-RS, QMMM,   
+  Crystal-QMMM, RESP, rigid body optimization, SF, symmetry and pop. for TD-DFT, various functionals, SOLVATOR                                   
+                                                                         
+[Other institutions]                                                     
+  V. Asgeirsson          : NEB                                           
+  Christoph Bannwarth    : sTDA-DFT, sTD-DFT, PBEh-3c, B97-3c, D3        
+  Giovanni Bistoni       : ETS/NOCV, ADLD/ADEX, COVALED                  
+  Martin Brehm           : Molecular dynamics                            
+  Ronald Cardenas        : ETS/NOCV                                      
+  Martina Colucci        : COVALED                                       
+  Sebastian Ehlert       : rSCAN, r2SCAN, r2SCAN-3c, D4, dhf basis sets  
+  Marvin Friede          : D4 for Fr, Ra, Ac-Lr                          
+  Lars Goerigk           : TD-DFT with DH, B97 family of functionals     
+  Stefan Grimme          : VdW corrections, initial TS optimization, DFT functionals, gCP, sTDA/sTD-DF 
+  Waldemar Hujo          : DFT-NL                                        
+  H. Jonsson             : NEB                                           
+  Holger Kruse           : gCP                                           
+  Marcel Mueller         : wB97X-3c, vDZP basis set                      
+  Hagen Neugebauer       : wr2SCAN, Native XTB                           
+  Gianluca Regni         : ADLD/ADEX                                     
+  Tobias Risthaus        : pre 6.0 range-separated hybrid DFT and stability analysis
+  Lukas Wittmann         : regularized MP2, r2SCAN double-hybrids, wr2SCAN        
+                                                                         
+We gratefully acknowledge several colleagues who have allowed us to      
+interface, adapt or use parts of their codes:                            
+  Ed Valeev, F. Pavosevic, A. Kumar             : LibInt (2-el integral package), F12 methods 
+  Garnet Chan, S. Sharma, J. Yang, R. Olivares  : DMRG                   
+  Ulf Ekstrom                                   : XCFun DFT Library      
+  Mihaly Kallay                                 : mrcc  (arbitrary order and MRCC methods)
+  Frank Weinhold                                : gennbo (NPA and NBO analysis)           
+  Simon Mueller                                 : openCOSMO-RS                            
+  Christopher J. Cramer and Donald G. Truhlar   : smd solvation model                     
+  S Lehtola, MJT Oliveira, MAL Marques          : LibXC Library                           
+  Liviu Ungur et al                             : ANISO software                          
+
+
+ Your calculation uses the libint2 library for the computation of 2-el integrals
+ For citations please refer to: http://libint.valeyev.net
+
+ Your ORCA version has been built with support for libXC version: 7.0.0
+ For citations please refer to: https://libxc.gitlab.io
+
+ This ORCA versions uses:
+   CBLAS   interface :  Fast vector & matrix operations
+   LAPACKE interface :  Fast linear algebra routines
+   SCALAPACK package :  Parallel linear algebra routines
+   Shared memory     :  Shared parallel matrices
+   BLAS/LAPACK       :  OpenBLAS 0.3.29  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX SINGLE_THREADED
+        Core in use  :  SkylakeX
+   Copyright (c) 2011-2014, The OpenBLAS Project
+
+
+  ***********************************
+  * Starting time: Sat Apr 11 12:36:52 2026
+  * Host name:     e003.ib.bridges2.psc.edu
+  * Process ID:    103902
+  * Working dir.:  /ocean/projects/mat250017p/desantos/ORCA/Projects/Catalyzed-tBuPa/Step3/products2
+  ***********************************
+
+NOTE: MaxCore=6000 MB was set to SCF,MP2,MDCI,CIPSI,MRCI,RASCI and CIS
+      => If you want to overwrite this, your respective input block should be placed after the MaxCore statement
+Warning: RI is on but no J-basis has been assigned. Assigning Def2/J (nothing to worry about!)
+================================================================================
+
+cite the ECPs for Pt [Def2-ECP] as follows:
+Ce-Yb(ecp-28): M. Dolg, H. Stoll, H.Preuss, J. Chem. Phys., 1989, 90, 1730-1734.
+Y-Cd(ecp-28), Hf-Hg(ecp-46): D. Andrae,U. Haeussermann, M. Dolg, H. Stoll, H. Preuss, Theor. Chim. Acta, 1990, 77, 123-141.
+In-Sb(ecp-28), Tl-Bi(ecp-46): B. Metz, H. Stoll, M. Dolg, J. Chem. Phys., 2000, 113, 2563-2569.
+Te-Xe(ecp-28), Po-Rn(ecp-46): K. A. Peterson, D. Figgen, E. Goll, H. Stoll, M. Dolg, J. Chem. Phys., 2003, 119, 11113-11123.
+Rb(ecp-28), Cs(ecp-46): T. Leininger, A. Nicklass, W. Kuechle, H. Stoll, M. Dolg, A. Bergner, Chem. Phys. Lett., 1996, 255, 274-280.
+Sr(ecp-28), Ba(ecp-46): M. Kaupp, P. V. Schleyer, H. Stoll and H. Preuss, J. Chem. Phys., 1991, 94, 1360-1366.
+La(ecp-46): M. Dolg, H. Stoll, A. Savin, H. Preuss, Theor. Chim. Acta, 1989, 75, 173-194.
+Lu(ecp-28): X. Cao, M. Dolg, J. Chem. Phys., 2001, 115, 7348-7355.
+
+ECP parameters for Pt [Def2-ECP] have been obtained from:
+TURBOMOLE (7.0.2)
+
+----- Orbital basis set information -----
+Your calculation utilizes the basis: def2-SVP
+   F. Weigend and R. Ahlrichs, Phys. Chem. Chem. Phys. 7, 3297 (2005).
+
+----- AuxJ basis set information -----
+Your calculation utilizes the auxiliary basis: def2/J
+   H-Rn: F. Weigend, Phys. Chem. Chem. Phys. 8, 1057 (2006).
+   Fr-Lr: K. Eichkorn, F. Weigend, O. Treutler, R. Ahlrichs; Theor. Chem. Acc. 97, 119 (1997).
+
+================================================================================
+                                        WARNINGS
+                       Please study these warnings very carefully!
+================================================================================
+
+WARNING: Old DensityContainer found on disk!
+         Will remove this file - 
+         If you want to keep old densities, please start your calculation with a different basename. 
+
+
+================================================================================
+                                       INPUT FILE
+================================================================================
+NAME = my_molecule.inp
+|  1> ! RKS PBE def2-SVP Opt Freq MOREAD
+|  2> 
+|  3> %pal nprocs 24 end
+|  4> %maxcore 6000
+|  5> 
+|  6> %moinp "my_molecule.gbw"
+|  7> 
+|  8> %geom
+|  9>   MaxIter 500
+| 10> end
+| 11> 
+| 12> * xyz 0 1
+| 13>   Pt         -0.80522343893953     -0.67273371882510      1.75362661596878
+| 14>   O          -1.18940596081650      0.87822540738706      3.11241741790185
+| 15>   O          -2.51302965729037     -1.88472400397857      1.66907448052563
+| 16>   P           0.26400730221929      1.47480685405308      2.94160274604277
+| 17>   P          -1.88565245737500     -2.79343296319748      0.53839897361330
+| 18>   O          -1.86914710939888     -4.37215796417290      0.95835318105547
+| 19>   O          -0.42298225211451     -2.21222475137148      0.38119454296388
+| 20>   O           0.21753627599728      3.04514886657476      2.49158498470477
+| 21>   O           0.90746438221929      0.54281494354588      1.83560542917742
+| 22>   C           1.24320756456066      1.55900840299052      4.49598666742327
+| 23>   C          -2.86243611363604     -2.83328268382968     -1.01954402245217
+| 24>   C          -2.12051027172789     -3.71157061772427     -2.04745687984845
+| 25>   C          -2.96566636167050     -1.37763462302837     -1.51995291329272
+| 26>   C          -4.26056404311668     -3.40037023669198     -0.69891381068928
+| 27>   C           0.46843171377700      2.42431324342540      5.51050028746873
+| 28>   C           1.38825555044633      0.11216815734634      5.01063334408571
+| 29>   C           2.62390820689808      2.16662730419830      4.17571152918842
+| 30>   H          -1.36294434715257     -4.49525207776918      1.78762634935351
+| 31>   H          -0.36174081446403      3.17074732627264      1.70831151296500
+| 32>   H          -1.10857156447525     -3.31518946313306     -2.26610284772679
+| 33>   H          -2.69537043829397     -3.72074703261662     -2.99712278506042
+| 34>   H          -2.01959082261846     -4.75690659436114     -1.69602969695229
+| 35>   H          -1.96404091663777     -0.94623090252047     -1.71582805396606
+| 36>   H          -3.48065565016674     -0.73028761956657     -0.78285005185521
+| 37>   H          -3.54442311950430     -1.35992846291519     -2.46666014639811
+| 38>   H          -4.20439037140232     -4.44569044788837     -0.33754841534780
+| 39>   H          -4.88050112492009     -3.38495819798062     -1.61972079190074
+| 40>   H          -4.77581514238079     -2.79136978740413      0.07082645055979
+| 41>   H          -0.54101335632416      2.01011628547853      5.70529900260674
+| 42>   H           0.35541535898766      3.46729388136614      5.15571173915530
+| 43>   H           1.02320662857905      2.44406797362114      6.47184583827696
+| 44>   H           0.40031033137195     -0.34764522716818      5.21068746453919
+| 45>   H           1.96741453571288      0.11950421389976      5.95725211119360
+| 46>   H           1.92248033951341     -0.52580800547304      4.27955529029172
+| 47>   H           2.53778447334990      3.20790344871819      3.80880180812350
+| 48>   H           3.16204061617371      1.57019316583083      3.41157101818136
+| 49>   H           3.24141933703156      2.17511176643710      5.09830235328252
+| 50>   Si          2.79982030724203     -0.08502195013510     -2.32043767887802
+| 51>   C           4.13508794862103     -0.08790158348390     -3.67440101106330
+| 52>   C           3.62670806715866     -0.13855015849568     -0.61396039454042
+| 53>   C           1.67727287639375     -1.60155510914810     -2.53299335224424
+| 54>   H           4.79685863884894      0.79961397428176     -3.59172330844300
+| 55>   H           3.68321162562183     -0.07629422293143     -4.68833812304257
+| 56>   H           4.77741755303557     -0.99056264740623     -3.60364639219926
+| 57>   H           2.87542458260355     -0.07382149521224      0.20063182852793
+| 58>   H           4.33951816747534      0.70388243521279     -0.49154358325547
+| 59>   H           4.19515870285396     -1.08234646967655     -0.47864957403138
+| 60>   H           0.98615945630692     -1.70679190458986     -1.67035297538549
+| 61>   H           2.28363286869336     -2.52983345822266     -2.59031943932720
+| 62>   H           1.07656262938360     -1.53491910494148     -3.46453686316172
+| 63>   H          -0.22101289437276      0.81737935785226     -1.91556819011693
+| 64>   C           1.77650536478079      1.52330490777556     -2.48072535035737
+| 65>   C           0.51536582847575      1.58670114339450     -1.59020213677378
+| 66>   H           1.50447375330055      1.66098968974056     -3.55173247809444
+| 67>   H           2.46605843874564      2.36685611071621     -2.24552246675439
+| 68>   Si         -0.37728796520835      3.26462919010006     -1.53018245095326
+| 69>   H           0.76063294191163      1.31460337614447     -0.53890837019620
+| 70>   C           0.76897607049641      4.57263724774566     -0.76070026029227
+| 71>   C          -1.95160993649803      3.09027538731537     -0.46706690736219
+| 72>   C          -0.88407177806802      3.83497256068889     -3.26847004212380
+| 73>   H           1.09649574113906      4.28681543226359      0.26062466377903
+| 74>   H           0.26883160087398      5.56132025760004     -0.69548920334135
+| 75>   H           1.68516220380254      4.70271044871361     -1.37331226512964
+| 76>   H          -1.77997687322608      2.57278551753664      0.50287565953259
+| 77>   H          -2.70184290557651      2.46633657072316     -0.99683795565169
+| 78>   H          -2.42538831038923      4.07183376122353     -0.25736583252050
+| 79>   H           0.00259520147601      3.94165659867752     -3.92705352498935
+| 80>   H          -1.39993632923117      4.81714378890181     -3.23802348264757
+| 81>   H          -1.57220085908253      3.10663448810578     -3.74583926212190
+| 82> **                         ****END OF INPUT****
+================================================================================
+
+                       *****************************
+                       * Geometry Optimization Run *
+                       *****************************
+
+Geometry optimization settings:
+Update method            Update   .... BFGS
+Choice of coordinates    CoordSys .... (2022) Redundant Internals
+Initial Hessian          InHess   .... Almloef's Model
+Max. no of cycles        MaxIter  .... 500
+
+Convergence Tolerances:
+Energy Change            TolE     ....  5.0000e-06 Eh
+Max. Gradient            TolMAXG  ....  3.0000e-04 Eh/bohr
+RMS Gradient             TolRMSG  ....  1.0000e-04 Eh/bohr
+Max. Displacement        TolMAXD  ....  4.0000e-03 bohr
+RMS Displacement         TolRMSD  ....  2.0000e-03 bohr
+Strict Convergence                .... False
+
+------------------------------------------------------------------------------
+                        ORCA OPTIMIZATION COORDINATE SETUP
+------------------------------------------------------------------------------
+
+The optimization will be done in redundant internal coordinates (2022)
+Making redundant internal coordinates   ...  (2022 redundants) done
+Evaluating the initial hessian          ...  (Almloef) done
+Evaluating the coordinates              ...  done
+Calculating the B-matrix                .... done
+Calculating the G-matrix                .... done
+The number of degrees of freedom        ....  452
+
+    -----------------------------------------------------------------
+                    Redundant Internal Coordinates
+
+
+    -----------------------------------------------------------------
+         Definition                    Initial Value    Approx d2E/dq
+    -----------------------------------------------------------------
+      1. B(O   1,Pt  0)                  2.0975         0.057908   
+      2. B(O   2,Pt  0)                  2.0959         0.058250   
+      3. B(P   3,Pt  0)                  2.6770         0.025850   
+      4. B(P   3,O   1)                  1.5803         0.934722   
+      5. B(P   4,O   2)                  1.5804         0.934414   
+      6. B(P   4,Pt  0)                  2.6724         0.026297   
+      7. B(O   5,P   4)                  1.6337         0.768328   
+      8. B(O   6,Pt  0)                  2.0975         0.057892   
+      9. B(O   6,P   4)                  1.5817         0.929931   
+     10. B(O   7,P   3)                  1.6342         0.766910   
+     11. B(O   8,P   3)                  1.5830         0.925671   
+     12. B(O   8,Pt  0)                  2.1018         0.056994   
+     13. B(C   9,P   3)                  1.8390         0.403490   
+     14. B(C  10,P   4)                  1.8393         0.403149   
+     15. B(C  11,C  10)                  1.5422         0.357173   
+     16. B(C  12,C  10)                  1.5427         0.356523   
+     17. B(C  13,C  10)                  1.5425         0.356873   
+     18. B(C  14,C   9)                  1.5422         0.357249   
+     19. B(C  15,C   9)                  1.5425         0.356833   
+     20. B(C  16,C   9)                  1.5421         0.357316   
+     21. B(H  17,O   5)                  0.9793         0.484314   
+     22. B(H  18,O   7)                  0.9823         0.479111   
+     23. B(H  19,C  11)                  1.1086         0.336344   
+     24. B(H  20,C  11)                  1.1101         0.334417   
+     25. B(H  21,C  11)                  1.1074         0.337758   
+     26. B(H  22,C  12)                  1.1080         0.337022   
+     27. B(H  23,C  12)                  1.1080         0.337098   
+     28. B(H  24,C  12)                  1.1097         0.334908   
+     29. B(H  25,C  13)                  1.1074         0.337746   
+     30. B(H  26,C  13)                  1.1102         0.334400   
+     31. B(H  27,C  13)                  1.1085         0.336388   
+     32. B(H  28,C  14)                  1.1084         0.336600   
+     33. B(H  29,C  14)                  1.1075         0.337734   
+     34. B(H  30,C  14)                  1.1101         0.334452   
+     35. B(H  31,C  15)                  1.1079         0.337158   
+     36. B(H  32,C  15)                  1.1098         0.334887   
+     37. B(H  33,C  15)                  1.1076         0.337494   
+     38. B(H  34,C  16)                  1.1074         0.337824   
+     39. B(H  35,C  16)                  1.1087         0.336184   
+     40. B(H  36,C  16)                  1.1102         0.334333   
+     41. B(C  38,Si 37)                  1.9016         0.414623   
+     42. B(C  39,Si 37)                  1.8970         0.421696   
+     43. B(C  40,Si 37)                  1.8987         0.419055   
+     44. B(H  41,C  38)                  1.1102         0.334392   
+     45. B(H  42,C  38)                  1.1101         0.334428   
+     46. B(H  43,C  38)                  1.1101         0.334430   
+     47. B(H  44,C  39)                  1.1100         0.334548   
+     48. B(H  45,C  39)                  1.1103         0.334217   
+     49. B(H  46,C  39)                  1.1100         0.334538   
+     50. B(H  47,C  40)                  1.1103         0.334170   
+     51. B(H  47,O   6)                  2.5397         0.010000   
+     52. B(H  48,C  40)                  1.1103         0.334282   
+     53. B(H  49,C  40)                  1.1104         0.334057   
+     54. B(H  50,H  22)                  2.4876         0.010000   
+     55. B(C  51,Si 37)                  1.9130         0.397644   
+     56. B(C  52,C  51)                  1.5452         0.353337   
+     57. B(C  52,H  50)                  1.1135         0.330267   
+     58. B(H  53,C  51)                  1.1136         0.330244   
+     59. B(H  54,C  51)                  1.1146         0.328958   
+     60. B(Si 55,C  52)                  1.9015         0.414739   
+     61. B(H  56,C  52)                  1.1133         0.330573   
+     62. B(H  56,O   8)                  2.5011         0.010000   
+     63. B(C  57,Si 55)                  1.9018         0.414325   
+     64. B(C  58,Si 55)                  1.9076         0.405551   
+     65. B(C  59,Si 55)                  1.8984         0.419623   
+     66. B(H  60,C  57)                  1.1100         0.334609   
+     67. B(H  60,H  18)                  2.3383         0.010000   
+     68. B(H  61,C  57)                  1.1099         0.334707   
+     69. B(H  62,C  57)                  1.1098         0.334863   
+     70. B(H  63,C  58)                  1.1127         0.331321   
+     71. B(H  63,H  18)                  1.9550         0.010000   
+     72. B(H  64,C  58)                  1.1103         0.334200   
+     73. B(H  65,C  58)                  1.1099         0.334703   
+     74. B(H  66,C  59)                  1.1096         0.335039   
+     75. B(H  67,C  59)                  1.1098         0.334811   
+     76. B(H  68,C  59)                  1.1099         0.334713   
+     77. A(O   2,Pt  0,O   6)           72.4024         0.210983   
+     78. A(O   1,Pt  0,O   2)          107.7272         0.210991   
+     79. A(O   2,Pt  0,P   3)          143.8289         0.199678   
+     80. A(P   4,Pt  0,O   8)          143.7201         0.199562   
+     81. A(O   1,Pt  0,P   4)          143.8367         0.199961   
+     82. A(O   1,Pt  0,P   3)           36.1463         0.199531   
+     83. A(P   3,Pt  0,O   8)           36.2232         0.199133   
+     84. A(O   6,Pt  0,O   8)          107.5474         0.210382   
+     85. A(O   1,Pt  0,O   8)           72.3225         0.210390   
+     86. A(P   3,Pt  0,O   6)          143.7412         0.199523   
+     87. A(O   2,Pt  0,P   4)           36.2264         0.200109   
+     88. A(P   4,Pt  0,O   6)           36.2639         0.199954   
+     89. A(Pt  0,O   1,P   3)           92.3306         0.331462   
+     90. A(Pt  0,O   2,P   4)           92.1715         0.331767   
+     91. A(O   8,P   3,C   9)          113.6442         0.489824   
+     92. A(Pt  0,P   3,O   1)           51.5231         0.308977   
+     93. A(O   1,P   3,C   9)          114.5580         0.490708   
+     94. A(O   1,P   3,O   8)          103.1261         0.570485   
+     95. A(O   7,P   3,O   8)          112.6378         0.549397   
+     96. A(O   1,P   3,O   7)          111.4912         0.550412   
+     97. A(O   7,P   3,C   9)          101.7648         0.473113   
+     98. A(Pt  0,P   3,C   9)          128.6439         0.272125   
+     99. A(Pt  0,P   3,O   7)          129.5907         0.299342   
+    100. A(Pt  0,P   3,O   8)           51.6839         0.308493   
+    101. A(O   2,P   4,O   6)          103.1153         0.570950   
+    102. A(O   5,P   4,O   6)          111.7949         0.550068   
+    103. A(O   2,P   4,C  10)          114.0564         0.490601   
+    104. A(O   6,P   4,C  10)          114.5111         0.490164   
+    105. A(Pt  0,P   4,O   2)           51.6021         0.309817   
+    106. A(Pt  0,P   4,O   5)          130.2319         0.300250   
+    107. A(Pt  0,P   4,C  10)          128.1042         0.272803   
+    108. A(Pt  0,P   4,O   6)           51.6647         0.309577   
+    109. A(O   2,P   4,O   5)          112.0694         0.550570   
+    110. A(O   5,P   4,C  10)          101.6637         0.473200   
+    111. A(P   4,O   5,H  17)          110.1423         0.404532   
+    112. A(Pt  0,O   6,P   4)           92.0714         0.331165   
+    113. A(P   4,O   6,H  47)          131.7968         0.179023   
+    114. A(Pt  0,O   6,H  47)          118.9201         0.134283   
+    115. A(P   3,O   7,H  18)          111.0525         0.403630   
+    116. A(P   3,O   8,H  56)          117.2434         0.181861   
+    117. A(Pt  0,O   8,P   3)           92.0929         0.330059   
+    118. A(Pt  0,O   8,H  56)           95.3704         0.135594   
+    119. A(P   3,C   9,C  14)          108.3135         0.388849   
+    120. A(C  14,C   9,C  15)          110.7358         0.357787   
+    121. A(C  15,C   9,C  16)          110.7743         0.357798   
+    122. A(C  14,C   9,C  16)          111.4294         0.357869   
+    123. A(P   3,C   9,C  16)          108.6160         0.388861   
+    124. A(P   3,C   9,C  15)          106.8058         0.388770   
+    125. A(P   4,C  10,C  11)          108.7489         0.388777   
+    126. A(C  12,C  10,C  13)          110.7124         0.357670   
+    127. A(P   4,C  10,C  12)          106.8489         0.388653   
+    128. A(C  11,C  10,C  12)          110.6922         0.357721   
+    129. A(C  11,C  10,C  13)          111.4220         0.357781   
+    130. A(P   4,C  10,C  13)          108.2565         0.388720   
+    131. A(H  19,C  11,H  21)          108.4763         0.284885   
+    132. A(C  10,C  11,H  21)          111.7090         0.318587   
+    133. A(H  19,C  11,H  20)          107.8737         0.284445   
+    134. A(C  10,C  11,H  20)          109.0117         0.318071   
+    135. A(C  10,C  11,H  19)          111.5288         0.318369   
+    136. A(H  20,C  11,H  21)          108.1104         0.284631   
+    137. A(H  23,C  12,H  24)          108.4096         0.284609   
+    138. A(H  22,C  12,H  24)          108.3260         0.284599   
+    139. A(C  10,C  12,H  24)          109.0666         0.318053   
+    140. A(H  22,C  12,H  23)          108.0771         0.284888   
+    141. A(C  10,C  12,H  23)          111.5060         0.318391   
+    142. A(C  10,C  12,H  22)          111.3597         0.318379   
+    143. A(H  26,C  13,H  27)          107.9843         0.284448   
+    144. A(H  25,C  13,H  27)          108.3941         0.284889   
+    145. A(C  10,C  13,H  27)          111.3259         0.318332   
+    146. A(H  25,C  13,H  26)          108.1846         0.284627   
+    147. A(C  10,C  13,H  26)          109.1871         0.318025   
+    148. A(C  10,C  13,H  25)          111.6466         0.318541   
+    149. A(H  29,C  14,H  30)          108.1600         0.284632   
+    150. A(H  28,C  14,H  30)          108.0347         0.284483   
+    151. A(C   9,C  14,H  30)          109.1842         0.318088   
+    152. A(H  28,C  14,H  29)          108.3793         0.284916   
+    153. A(C   9,C  14,H  29)          111.6509         0.318594   
+    154. A(C   9,C  14,H  28)          111.3148         0.318420   
+    155. A(H  32,C  15,H  33)          108.3670         0.284658   
+    156. A(H  31,C  15,H  33)          108.0721         0.284958   
+    157. A(C   9,C  15,H  33)          111.4320         0.318497   
+    158. A(H  31,C  15,H  32)          108.3056         0.284614   
+    159. A(C   9,C  15,H  32)          109.1156         0.318094   
+    160. A(C   9,C  15,H  31)          111.4497         0.318445   
+    161. A(H  35,C  16,H  36)          107.8717         0.284413   
+    162. A(H  34,C  16,H  36)          108.1442         0.284628   
+    163. A(C   9,C  16,H  36)          109.1727         0.318079   
+    164. A(H  34,C  16,H  35)          108.3747         0.284873   
+    165. A(C   9,C  16,H  35)          111.4533         0.318365   
+    166. A(C   9,C  16,H  34)          111.6957         0.318618   
+    167. A(H  60,H  18,H  63)          102.5122         0.099535   
+    168. A(O   7,H  18,H  60)          100.7745         0.130455   
+    169. A(O   7,H  18,H  63)          151.6887         0.146017   
+    170. A(C  12,H  22,H  50)          157.4592         0.123212   
+    171. A(C  38,Si 37,C  39)          109.5347         0.439511   
+    172. A(C  40,Si 37,C  51)          110.2349         0.435716   
+    173. A(C  39,Si 37,C  51)          109.4062         0.436209   
+    174. A(C  38,Si 37,C  51)          108.4952         0.434883   
+    175. A(C  39,Si 37,C  40)          109.6253         0.440355   
+    176. A(C  38,Si 37,C  40)          109.5249         0.439013   
+    177. A(H  42,C  38,H  43)          107.5919         0.284194   
+    178. A(H  41,C  38,H  43)          107.4807         0.284189   
+    179. A(Si 37,C  38,H  43)          111.2313         0.350068   
+    180. A(H  41,C  38,H  42)          107.5960         0.284189   
+    181. A(Si 37,C  38,H  42)          111.3752         0.350067   
+    182. A(Si 37,C  38,H  41)          111.3664         0.350061   
+    183. A(H  45,C  39,H  46)          107.6320         0.284180   
+    184. A(H  44,C  39,H  46)          107.8616         0.284224   
+    185. A(Si 37,C  39,H  46)          110.9076         0.351088   
+    186. A(H  44,C  39,H  45)          108.0204         0.284182   
+    187. A(Si 37,C  39,H  45)          110.9535         0.351031   
+    188. A(Si 37,C  39,H  44)          111.3138         0.351090   
+    189. A(H  48,C  40,H  49)          107.5962         0.284125   
+    190. A(H  47,C  40,H  49)          108.7067         0.284111   
+    191. A(Si 37,C  40,H  49)          111.4573         0.350630   
+    192. A(H  47,C  40,H  48)          107.5062         0.284140   
+    193. A(Si 37,C  40,H  48)          110.5297         0.350670   
+    194. A(Si 37,C  40,H  47)          110.8987         0.350650   
+    195. A(O   6,H  47,C  40)          172.6606         0.146312   
+    196. A(H  22,H  50,C  52)          158.3864         0.123055   
+    197. A(H  53,C  51,H  54)          105.1001         0.282913   
+    198. A(C  52,C  51,H  54)          110.6257         0.316662   
+    199. A(Si 37,C  51,H  54)          106.7181         0.346645   
+    200. A(C  52,C  51,H  53)          110.4780         0.316863   
+    201. A(Si 37,C  51,H  53)          108.3738         0.346872   
+    202. A(Si 37,C  51,C  52)          115.0117         0.391753   
+    203. A(Si 55,C  52,H  56)          106.8150         0.349399   
+    204. A(C  51,C  52,H  56)          110.7564         0.316915   
+    205. A(H  50,C  52,H  56)          104.6404         0.283131   
+    206. A(C  51,C  52,Si 55)          115.9472         0.394651   
+    207. A(H  50,C  52,Si 55)          107.9640         0.349345   
+    208. A(H  50,C  52,C  51)          110.0595         0.316867   
+    209. A(C  58,Si 55,C  59)          108.5086         0.437371   
+    210. A(C  57,Si 55,C  59)          108.9508         0.439063   
+    211. A(C  52,Si 55,C  59)          111.1940         0.439142   
+    212. A(C  57,Si 55,C  58)          109.5595         0.436371   
+    213. A(C  52,Si 55,C  58)          108.9263         0.436449   
+    214. A(C  52,Si 55,C  57)          109.6771         0.438137   
+    215. A(O   8,H  56,C  52)          170.0208         0.148035   
+    216. A(H  61,C  57,H  62)          107.4600         0.284288   
+    217. A(H  60,C  57,H  62)          107.1280         0.284275   
+    218. A(Si 55,C  57,H  62)          110.7839         0.350101   
+    219. A(H  60,C  57,H  61)          107.9555         0.284254   
+    220. A(Si 55,C  57,H  61)          111.3968         0.350074   
+    221. A(Si 55,C  57,H  60)          111.9025         0.350057   
+    222. A(H  64,C  58,H  65)          107.3785         0.284200   
+    223. A(H  63,C  58,H  65)          108.2069         0.283818   
+    224. A(Si 55,C  58,H  65)          112.1320         0.348812   
+    225. A(H  63,C  58,H  64)          104.9990         0.283752   
+    226. A(Si 55,C  58,H  64)          110.0650         0.348723   
+    227. A(Si 55,C  58,H  63)          113.6415         0.348215   
+    228. A(H  67,C  59,H  68)          107.7195         0.284282   
+    229. A(H  66,C  59,H  68)          107.6518         0.284312   
+    230. A(Si 55,C  59,H  68)          111.2349         0.350827   
+    231. A(H  66,C  59,H  67)          107.6147         0.284325   
+    232. A(Si 55,C  59,H  67)          111.3984         0.350844   
+    233. A(Si 55,C  59,H  66)          111.0410         0.350885   
+    234. A(H  18,H  60,C  57)          120.5672         0.127671   
+    235. A(H  18,H  63,C  58)          120.4738         0.142069   
+    236. D(P   3,O   1,Pt  0,P   4)   -178.5631         0.010000   
+    237. D(P   3,O   1,Pt  0,O   2)    177.6840         0.010000   
+    238. D(P   3,O   1,Pt  0,O   8)     -2.3774         0.010000   
+    239. D(P   4,O   2,Pt  0,O   6)     -3.2517         0.010000   
+    240. D(P   4,O   2,Pt  0,P   3)    178.5674         0.010000   
+    241. D(P   4,O   2,Pt  0,O   1)    176.2528         0.010000   
+    242. D(C   9,P   3,O   1,Pt  0)   -120.9206         0.016280   
+    243. D(O   7,P   3,Pt  0,O   8)     89.0315         0.010000   
+    244. D(O   1,P   3,Pt  0,O   2)     -3.7394         0.010000   
+    245. D(O   7,P   3,Pt  0,O   2)    -90.8730         0.010000   
+    246. D(O   8,P   3,Pt  0,O   2)   -179.9045         0.010000   
+    247. D(O   7,P   3,Pt  0,O   1)    -87.1336         0.010000   
+    248. D(O   8,P   3,Pt  0,O   6)      3.0280         0.010000   
+    249. D(O   8,P   3,Pt  0,O   1)   -176.1651         0.010000   
+    250. D(O   1,P   3,Pt  0,O   8)    176.1651         0.010000   
+    251. D(O   7,P   3,O   1,Pt  0)    124.1917         0.016280   
+    252. D(O   1,P   3,Pt  0,O   6)    179.1931         0.010000   
+    253. D(O   8,P   3,O   1,Pt  0)      3.0888         0.016280   
+    254. D(O   7,P   3,Pt  0,O   6)     92.0595         0.010000   
+    255. D(O   6,P   4,Pt  0,O   1)    179.1888         0.010000   
+    256. D(O   6,P   4,Pt  0,O   8)      5.3377         0.010000   
+    257. D(O   5,P   4,Pt  0,O   8)     92.5302         0.010000   
+    258. D(O   5,P   4,Pt  0,O   1)    -93.6187         0.010000   
+    259. D(O   5,P   4,O   2,Pt  0)    124.6086         0.016270   
+    260. D(O   6,P   4,Pt  0,O   2)   -174.7555         0.010000   
+    261. D(O   5,P   4,Pt  0,O   2)    -87.5630         0.010000   
+    262. D(O   2,P   4,Pt  0,O   6)    174.7555         0.010000   
+    263. D(O   2,P   4,Pt  0,O   8)   -179.9068         0.010000   
+    264. D(O   6,P   4,P   3,O   1)   -178.9789         0.010000   
+    265. D(O   5,P   4,P   3,O   8)     91.0301         0.010000   
+    266. D(O   5,P   4,P   3,O   1)    -92.1337         0.010000   
+    267. D(O   6,P   4,P   3,O   7)     93.5370         0.010000   
+    268. D(O   2,P   4,P   3,C   9)     87.3182         0.010000   
+    269. D(O   2,P   4,P   3,O   8)    178.2700         0.010000   
+    270. D(O   5,P   4,P   3,C   9)      0.0783         0.010000   
+    271. D(O   5,P   4,P   3,O   7)   -179.6179         0.010000   
+    272. D(O   2,P   4,P   3,O   7)    -92.3780         0.010000   
+    273. D(C  10,P   4,O   2,Pt  0)   -120.5637         0.016270   
+    274. D(O   2,P   4,Pt  0,O   1)     -6.0557         0.010000   
+    275. D(O   2,P   4,P   3,O   1)     -4.8939         0.010000   
+    276. D(O   6,P   4,O   2,Pt  0)      4.2219         0.016270   
+    277. D(O   5,P   4,Pt  0,O   6)     87.1925         0.010000   
+    278. D(H  17,O   5,P   4,Pt  0)     -0.5953         0.011209   
+    279. D(H  17,O   5,P   4,O   2)    -58.2581         0.011209   
+    280. D(H  17,O   5,P   4,O   6)     56.9447         0.011209   
+    281. D(H  17,O   5,P   4,C  10)    179.5449         0.011209   
+    282. D(H  47,O   6,P   4,Pt  0)   -132.9551         0.017274   
+    283. D(H  47,O   6,P   4,O   5)    102.2522         0.017274   
+    284. D(Pt  0,O   6,P   4,C  10)    120.2704         0.017274   
+    285. D(Pt  0,O   6,P   4,O   5)   -124.7927         0.017274   
+    286. D(Pt  0,O   6,P   4,O   2)     -4.2182         0.017274   
+    287. D(H  47,O   6,P   4,C  10)    -12.6847         0.017274   
+    288. D(P   4,O   6,O   1,P   3)   -179.1992         0.010000   
+    289. D(H  47,O   6,O   1,P   3)    -37.8558         0.010000   
+    290. D(H  47,O   6,Pt  0,P   3)    -37.1291         0.010000   
+    291. D(H  47,O   6,Pt  0,O   8)    -35.2529         0.010000   
+    292. D(H  47,O   6,Pt  0,P   4)    141.4374         0.010000   
+    293. D(H  47,O   6,P   4,O   2)   -137.1733         0.017274   
+    294. D(H  47,O   6,Pt  0,O   2)    144.6862         0.010000   
+    295. D(P   4,O   6,Pt  0,O   8)   -176.6903         0.010000   
+    296. D(P   4,O   6,Pt  0,P   3)   -178.5665         0.010000   
+    297. D(P   4,O   6,Pt  0,O   2)      3.2488         0.010000   
+    298. D(H  18,O   7,P   3,O   1)    -51.5893         0.011171   
+    299. D(H  18,O   7,P   3,Pt  0)      5.5828         0.011171   
+    300. D(H  18,O   7,P   3,C   9)   -174.1544         0.011171   
+    301. D(H  18,O   7,P   3,O   8)     63.7919         0.011171   
+    302. D(H  56,O   8,P   3,Pt  0)     97.1322         0.017118   
+    303. D(H  56,O   8,P   3,C   9)   -141.3413         0.017118   
+    304. D(H  56,O   8,P   3,O   7)    -26.2702         0.017118   
+    305. D(Pt  0,O   8,P   3,C   9)    121.5265         0.017118   
+    306. D(Pt  0,O   8,P   3,O   7)   -123.4024         0.017118   
+    307. D(Pt  0,O   8,P   3,O   1)     -3.0819         0.017118   
+    308. D(H  56,O   8,O   2,P   4)     61.0273         0.010000   
+    309. D(P   3,O   8,O   2,P   4)    178.6424         0.010000   
+    310. D(H  56,O   8,Pt  0,P   3)   -117.6152         0.010000   
+    311. D(H  56,O   8,Pt  0,O   1)   -115.2422         0.010000   
+    312. D(H  56,O   8,Pt  0,P   4)     60.9541         0.010000   
+    313. D(H  56,O   8,P   3,O   1)     94.0503         0.017118   
+    314. D(H  56,O   8,Pt  0,O   6)     64.2625         0.010000   
+    315. D(P   3,O   8,Pt  0,O   1)      2.3730         0.010000   
+    316. D(P   3,O   8,Pt  0,P   4)    178.5693         0.010000   
+    317. D(P   3,O   8,Pt  0,O   6)   -178.1223         0.010000   
+    318. D(C  15,C   9,P   3,Pt  0)      1.5679         0.010000   
+    319. D(C  15,C   9,P   3,O   8)    -57.3339         0.010000   
+    320. D(C  15,C   9,P   3,O   7)   -178.6914         0.010000   
+    321. D(C  15,C   9,P   3,O   1)     60.8706         0.010000   
+    322. D(C  14,C   9,P   3,Pt  0)   -117.7433         0.010000   
+    323. D(C  14,C   9,P   3,O   8)   -176.6451         0.010000   
+    324. D(C  14,C   9,P   3,O   7)     61.9974         0.010000   
+    325. D(C  14,C   9,P   3,O   1)    -58.4407         0.010000   
+    326. D(C  12,C  10,P   4,Pt  0)     -0.4352         0.010000   
+    327. D(C  12,C  10,P   4,O   6)    -59.8549         0.010000   
+    328. D(C  12,C  10,P   4,O   5)    179.4288         0.010000   
+    329. D(C  12,C  10,P   4,O   2)     58.6120         0.010000   
+    330. D(C  11,C  10,P   4,Pt  0)    119.0819         0.010000   
+    331. D(C  11,C  10,P   4,O   6)     59.6622         0.010000   
+    332. D(C  11,C  10,P   4,O   5)    -61.0541         0.010000   
+    333. D(C  11,C  10,P   4,O   2)    178.1291         0.010000   
+    334. D(H  20,C  11,C  10,C  13)     61.9726         0.010246   
+    335. D(H  20,C  11,C  10,C  12)    -61.6909         0.010246   
+    336. D(H  20,C  11,C  10,P   4)   -178.7820         0.010246   
+    337. D(H  19,C  11,C  10,C  13)   -179.0216         0.010246   
+    338. D(H  19,C  11,C  10,C  12)     57.3149         0.010246   
+    339. D(H  19,C  11,C  10,P   4)    -59.7762         0.010246   
+    340. D(H  23,C  12,C  10,C  13)     56.9619         0.010212   
+    341. D(H  23,C  12,C  10,C  11)   -178.9673         0.010212   
+    342. D(H  23,C  12,C  10,P   4)    -60.7129         0.010212   
+    343. D(H  22,C  12,C  10,C  13)    177.7732         0.010212   
+    344. D(H  22,C  12,C  10,C  11)    -58.1560         0.010212   
+    345. D(H  22,C  12,C  10,P   4)     60.0984         0.010212   
+    346. D(H  26,C  13,C  10,C  12)     60.4451         0.010230   
+    347. D(H  26,C  13,C  10,C  11)    -63.2069         0.010230   
+    348. D(H  26,C  13,C  10,P   4)    177.2552         0.010230   
+    349. D(H  25,C  13,C  10,C  12)   -179.9766         0.010230   
+    350. D(H  25,C  13,C  10,C  11)     56.3713         0.010230   
+    351. D(H  25,C  13,C  10,P   4)    -63.1666         0.010230   
+    352. D(H  29,C  14,C   9,C  16)     56.2209         0.010251   
+    353. D(H  29,C  14,C   9,C  15)   -179.9988         0.010251   
+    354. D(H  29,C  14,C   9,P   3)    -63.1940         0.010251   
+    355. D(H  28,C  14,C   9,C  16)    177.4883         0.010251   
+    356. D(H  28,C  14,C   9,C  15)    -58.7315         0.010251   
+    357. D(H  28,C  14,C   9,P   3)     58.0733         0.010251   
+    358. D(H  32,C  15,C   9,C  14)    -61.7237         0.010228   
+    359. D(H  32,C  15,C   9,P   3)   -179.4541         0.010228   
+    360. D(H  31,C  15,C   9,C  16)   -178.0089         0.010228   
+    361. D(H  31,C  15,C   9,C  14)     57.8356         0.010228   
+    362. D(H  31,C  15,C   9,P   3)    -59.8948         0.010228   
+    363. D(H  32,C  15,C   9,C  16)     62.4318         0.010228   
+    364. D(H  35,C  16,C   9,C  15)     58.8601         0.010254   
+    365. D(H  35,C  16,C   9,C  14)   -177.3815         0.010254   
+    366. D(H  35,C  16,C   9,P   3)    -58.1463         0.010254   
+    367. D(H  34,C  16,C   9,C  15)   -179.7495         0.010254   
+    368. D(H  34,C  16,C   9,C  14)    -55.9911         0.010254   
+    369. D(H  34,C  16,C   9,P   3)     63.2441         0.010254   
+    370. D(H  60,H  18,O   7,P   3)   -126.4145         0.280120   
+    371. D(H  63,H  18,O   7,P   3)     18.4967         0.280120   
+    372. D(H  50,H  22,C  12,H  24)     89.2453         0.103453   
+    373. D(H  50,H  22,C  12,H  23)    -28.0172         0.103453   
+    374. D(H  50,H  22,C  12,C  10)   -150.8185         0.103453   
+    375. D(H  42,C  38,Si 37,C  51)    -61.6997         0.010000   
+    376. D(H  42,C  38,Si 37,C  40)     58.6699         0.010000   
+    377. D(H  42,C  38,Si 37,C  39)    178.9308         0.010000   
+    378. D(H  41,C  38,Si 37,C  51)     58.4138         0.010000   
+    379. D(H  41,C  38,Si 37,C  40)    178.7834         0.010000   
+    380. D(H  41,C  38,Si 37,C  39)    -60.9557         0.010000   
+    381. D(H  45,C  39,Si 37,C  51)    -62.6944         0.010000   
+    382. D(H  45,C  39,Si 37,C  40)    176.3125         0.010000   
+    383. D(H  45,C  39,Si 37,C  38)     56.1128         0.010000   
+    384. D(H  44,C  39,Si 37,C  51)     57.6361         0.010000   
+    385. D(H  44,C  39,Si 37,C  40)    -63.3570         0.010000   
+    386. D(H  44,C  39,Si 37,C  38)    176.4433         0.010000   
+    387. D(H  48,C  40,Si 37,C  51)    171.6881         0.010000   
+    388. D(H  48,C  40,Si 37,C  39)    -67.8210         0.010000   
+    389. D(H  48,C  40,Si 37,C  38)     52.3846         0.010000   
+    390. D(H  47,C  40,Si 37,C  51)    -69.1803         0.010000   
+    391. D(H  47,C  40,Si 37,C  39)     51.3106         0.010000   
+    392. D(H  47,C  40,Si 37,C  38)    171.5162         0.010000   
+    393. D(O   6,H  47,C  40,H  49)    126.1348         0.101355   
+    394. D(O   6,H  47,C  40,H  48)      9.9370         0.101355   
+    395. D(O   6,H  47,C  40,Si 37)   -110.9975         0.101355   
+    396. D(C  40,H  47,O   6,Pt  0)    130.4703         0.010000   
+    397. D(C  40,H  47,O   6,P   4)   -106.2097         0.010000   
+    398. D(C  52,H  50,H  22,C  12)     72.0396         0.010000   
+    399. D(H  53,C  51,Si 37,C  40)    -72.8640         0.010000   
+    400. D(H  53,C  51,Si 37,C  39)    166.5137         0.010000   
+    401. D(H  53,C  51,Si 37,C  38)     47.0636         0.010000   
+    402. D(C  52,C  51,Si 37,C  40)     51.3133         0.010000   
+    403. D(C  52,C  51,Si 37,C  39)    -69.3091         0.010000   
+    404. D(C  52,C  51,Si 37,C  38)    171.2408         0.010000   
+    405. D(Si 55,C  52,C  51,H  54)     50.2450         0.010044   
+    406. D(Si 55,C  52,C  51,H  53)    -65.7113         0.010044   
+    407. D(Si 55,C  52,C  51,Si 37)    171.2276         0.010044   
+    408. D(H  50,C  52,C  51,H  54)    173.1210         0.010044   
+    409. D(H  50,C  52,C  51,H  53)     57.1647         0.010044   
+    410. D(H  50,C  52,C  51,Si 37)    -65.8964         0.010044   
+    411. D(H  56,C  52,H  50,H  22)     22.3084         0.098527   
+    412. D(Si 55,C  52,H  50,H  22)    -91.2080         0.098527   
+    413. D(C  51,C  52,H  50,H  22)    141.3427         0.098527   
+    414. D(C  58,Si 55,C  52,H  56)    -59.4236         0.010000   
+    415. D(C  58,Si 55,C  52,C  51)    176.6051         0.010000   
+    416. D(C  58,Si 55,C  52,H  50)     52.6350         0.010000   
+    417. D(C  57,Si 55,C  52,H  56)     60.4764         0.010000   
+    418. D(C  57,Si 55,C  52,C  51)    -63.4950         0.010000   
+    419. D(C  57,Si 55,C  52,H  50)    172.5349         0.010000   
+    420. D(O   8,H  56,C  52,Si 55)     84.8044         0.098747   
+    421. D(O   8,H  56,C  52,C  51)   -148.0858         0.098747   
+    422. D(O   8,H  56,C  52,H  50)    -29.5232         0.098747   
+    423. D(C  52,H  56,O   8,Pt  0)     14.3038         0.010000   
+    424. D(C  52,H  56,O   8,P   3)    -80.8403         0.010000   
+    425. D(H  61,C  57,Si 55,C  59)     59.0717         0.010000   
+    426. D(H  61,C  57,Si 55,C  58)    -59.4954         0.010000   
+    427. D(H  61,C  57,Si 55,C  52)   -179.0080         0.010000   
+    428. D(H  60,C  57,Si 55,C  59)   -179.9715         0.010000   
+    429. D(H  60,C  57,Si 55,C  58)     61.4614         0.010000   
+    430. D(H  60,C  57,Si 55,C  52)    -58.0511         0.010000   
+    431. D(H  64,C  58,Si 55,C  59)     51.2630         0.010000   
+    432. D(H  64,C  58,Si 55,C  57)    170.1039         0.010000   
+    433. D(H  64,C  58,Si 55,C  52)    -69.9234         0.010000   
+    434. D(H  63,C  58,Si 55,C  59)    168.6927         0.010000   
+    435. D(H  63,C  58,Si 55,C  57)    -72.4664         0.010000   
+    436. D(H  63,C  58,Si 55,C  52)     47.5063         0.010000   
+    437. D(H  67,C  59,Si 55,C  58)     60.5700         0.010000   
+    438. D(H  67,C  59,Si 55,C  57)    -58.6539         0.010000   
+    439. D(H  67,C  59,Si 55,C  52)   -179.6504         0.010000   
+    440. D(H  66,C  59,Si 55,C  58)   -179.4972         0.010000   
+    441. D(H  66,C  59,Si 55,C  57)     61.2788         0.010000   
+    442. D(H  66,C  59,Si 55,C  52)    -59.7177         0.010000   
+    443. D(H  18,H  60,C  57,H  62)   -157.9683         0.101676   
+    444. D(H  18,H  60,C  57,H  61)     86.5702         0.101676   
+    445. D(H  18,H  60,C  57,Si 55)    -36.3606         0.101676   
+    446. D(C  57,H  60,H  18,H  63)     14.7695         0.010000   
+    447. D(C  57,H  60,H  18,O   7)    178.5535         0.010000   
+    448. D(H  18,H  63,C  58,H  65)    -73.2622         0.099285   
+    449. D(H  18,H  63,C  58,H  64)    172.3040         0.099285   
+    450. D(H  18,H  63,C  58,Si 55)     51.9717         0.099285   
+    451. D(C  58,H  63,H  18,H  60)    -22.8527         0.010000   
+    452. D(C  58,H  63,H  18,O   7)   -167.5112         0.010000   
+    -----------------------------------------------------------------
+
+Number of atoms                         .... 69
+Number of degrees of freedom            .... 452
+
+
+         *************************************************************
+         *                GEOMETRY OPTIMIZATION CYCLE   1            *
+         *************************************************************
+---------------------------------
+CARTESIAN COORDINATES (ANGSTROEM)
+---------------------------------
+  Pt    -0.805223   -0.672734    1.753627
+  O     -1.189406    0.878225    3.112417
+  O     -2.513030   -1.884724    1.669074
+  P      0.264007    1.474807    2.941603
+  P     -1.885652   -2.793433    0.538399
+  O     -1.869147   -4.372158    0.958353
+  O     -0.422982   -2.212225    0.381195
+  O      0.217536    3.045149    2.491585
+  O      0.907464    0.542815    1.835605
+  C      1.243208    1.559008    4.495987
+  C     -2.862436   -2.833283   -1.019544
+  C     -2.120510   -3.711571   -2.047457
+  C     -2.965666   -1.377635   -1.519953
+  C     -4.260564   -3.400370   -0.698914
+  C      0.468432    2.424313    5.510500
+  C      1.388256    0.112168    5.010633
+  C      2.623908    2.166627    4.175712
+  H     -1.362944   -4.495252    1.787626
+  H     -0.361741    3.170747    1.708312
+  H     -1.108572   -3.315189   -2.266103
+  H     -2.695370   -3.720747   -2.997123
+  H     -2.019591   -4.756907   -1.696030
+  H     -1.964041   -0.946231   -1.715828
+  H     -3.480656   -0.730288   -0.782850
+  H     -3.544423   -1.359928   -2.466660
+  H     -4.204390   -4.445690   -0.337548
+  H     -4.880501   -3.384958   -1.619721
+  H     -4.775815   -2.791370    0.070826
+  H     -0.541013    2.010116    5.705299
+  H      0.355415    3.467294    5.155712
+  H      1.023207    2.444068    6.471846
+  H      0.400310   -0.347645    5.210687
+  H      1.967415    0.119504    5.957252
+  H      1.922480   -0.525808    4.279555
+  H      2.537784    3.207903    3.808802
+  H      3.162041    1.570193    3.411571
+  H      3.241419    2.175112    5.098302
+  Si     2.799820   -0.085022   -2.320438
+  C      4.135088   -0.087902   -3.674401
+  C      3.626708   -0.138550   -0.613960
+  C      1.677273   -1.601555   -2.532993
+  H      4.796859    0.799614   -3.591723
+  H      3.683212   -0.076294   -4.688338
+  H      4.777418   -0.990563   -3.603646
+  H      2.875425   -0.073821    0.200632
+  H      4.339518    0.703882   -0.491544
+  H      4.195159   -1.082346   -0.478650
+  H      0.986159   -1.706792   -1.670353
+  H      2.283633   -2.529833   -2.590319
+  H      1.076563   -1.534919   -3.464537
+  H     -0.221013    0.817379   -1.915568
+  C      1.776505    1.523305   -2.480725
+  C      0.515366    1.586701   -1.590202
+  H      1.504474    1.660990   -3.551732
+  H      2.466058    2.366856   -2.245522
+  Si    -0.377288    3.264629   -1.530182
+  H      0.760633    1.314603   -0.538908
+  C      0.768976    4.572637   -0.760700
+  C     -1.951610    3.090275   -0.467067
+  C     -0.884072    3.834973   -3.268470
+  H      1.096496    4.286815    0.260625
+  H      0.268832    5.561320   -0.695489
+  H      1.685162    4.702710   -1.373312
+  H     -1.779977    2.572786    0.502876
+  H     -2.701843    2.466337   -0.996838
+  H     -2.425388    4.071834   -0.257366
+  H      0.002595    3.941657   -3.927054
+  H     -1.399936    4.817144   -3.238023
+  H     -1.572201    3.106634   -3.745839
+
+----------------------------
+CARTESIAN COORDINATES (A.U.)
+----------------------------
+  NO LB      ZA    FRAG     MASS         X           Y           Z
+   0 Pt   18.0000*   0   195.090   -1.521652   -1.271282    3.313874
+   1 O     8.0000    0    15.999   -2.247652    1.659606    5.881617
+   2 O     8.0000    0    15.999   -4.748938   -3.561612    3.154094
+   3 P    15.0000    0    30.974    0.498901    2.786981    5.558824
+   4 P    15.0000    0    30.974   -3.563367   -5.278823    1.017427
+   5 O     8.0000    0    15.999   -3.532176   -8.262181    1.811025
+   6 O     8.0000    0    15.999   -0.799321   -4.180499    0.720353
+   7 O     8.0000    0    15.999    0.411084    5.754497    4.708413
+   8 O     8.0000    0    15.999    1.714859    1.025772    3.468792
+   9 C     6.0000    0    12.011    2.349322    2.946099    8.496184
+  10 C     6.0000    0    12.011   -5.409220   -5.354128   -1.926659
+  11 C     6.0000    0    12.011   -4.007184   -7.013852   -3.869133
+  12 C     6.0000    0    12.011   -5.604297   -2.603352   -2.872295
+  13 C     6.0000    0    12.011   -8.051299   -6.425769   -1.320756
+  14 C     6.0000    0    12.011    0.885208    4.581288   10.413336
+  15 C     6.0000    0    12.011    2.623423    0.211967    9.468725
+  16 C     6.0000    0    12.011    4.958468    4.094332    7.890951
+  17 H     1.0000    0     1.008   -2.575592   -8.494795    3.378124
+  18 H     1.0000    0     1.008   -0.683591    5.991844    3.228241
+  19 H     1.0000    0     1.008   -2.094897   -6.264800   -4.282314
+  20 H     1.0000    0     1.008   -5.093512   -7.031193   -5.663741
+  21 H     1.0000    0     1.008   -3.816474   -8.989251   -3.205032
+  22 H     1.0000    0     1.008   -3.711499   -1.788117   -3.242445
+  23 H     1.0000    0     1.008   -6.577486   -1.380044   -1.479372
+  24 H     1.0000    0     1.008   -6.697989   -2.569892   -4.661312
+  25 H     1.0000    0     1.008   -7.945146   -8.401137   -0.637874
+  26 H     1.0000    0     1.008   -9.222811   -6.396644   -3.060829
+  27 H     1.0000    0     1.008   -9.024983   -5.274924    0.133843
+  28 H     1.0000    0     1.008   -1.022367    3.798569   10.781453
+  29 H     1.0000    0     1.008    0.671638    6.552236    9.742883
+  30 H     1.0000    0     1.008    1.933580    4.618619   12.230016
+  31 H     1.0000    0     1.008    0.756477   -0.656954    9.846772
+  32 H     1.0000    0     1.008    3.717875    0.225830   11.257575
+  33 H     1.0000    0     1.008    3.632961   -0.993633    8.087187
+  34 H     1.0000    0     1.008    4.795718    6.062059    7.197592
+  35 H     1.0000    0     1.008    5.975391    2.967235    6.446935
+  36 H     1.0000    0     1.008    6.125395    4.110366    9.634395
+  37 Si   14.0000    0    28.086    5.290894   -0.160668   -4.384992
+  38 C     6.0000    0    12.011    7.814184   -0.166110   -6.943612
+  39 C     6.0000    0    12.011    6.853485   -0.261822   -1.160217
+  40 C     6.0000    0    12.011    3.169586   -3.026501   -4.786664
+  41 H     1.0000    0     1.008    9.064749    1.511051   -6.787373
+  42 H     1.0000    0     1.008    6.960261   -0.144175   -8.859675
+  43 H     1.0000    0     1.008    9.028011   -1.871892   -6.809905
+  44 H     1.0000    0     1.008    5.433765   -0.139502    0.379139
+  45 H     1.0000    0     1.008    8.200501    1.330145   -0.928883
+  46 H     1.0000    0     1.008    7.927701   -2.045338   -0.904517
+  47 H     1.0000    0     1.008    1.863571   -3.225369   -3.156510
+  48 H     1.0000    0     1.008    4.315441   -4.780692   -4.894994
+  49 H     1.0000    0     1.008    2.034409   -2.900577   -6.547026
+  50 H     1.0000    0     1.008   -0.417654    1.544623   -3.619899
+  51 C     6.0000    0    12.011    3.357109    2.878629   -4.687892
+  52 C     6.0000    0    12.011    0.973900    2.998431   -3.005047
+  53 H     1.0000    0     1.008    2.843043    3.138816   -6.711802
+  54 H     1.0000    0     1.008    4.660175    4.472710   -4.243422
+  55 Si   14.0000    0    28.086   -0.712971    6.169255   -2.891626
+  56 H     1.0000    0     1.008    1.437388    2.484240   -1.018389
+  57 C     6.0000    0    12.011    1.453154    8.641032   -1.437515
+  58 C     6.0000    0    12.011   -3.688008    5.839774   -0.882629
+  59 C     6.0000    0    12.011   -1.670654    7.247048   -6.176513
+  60 H     1.0000    0     1.008    2.072077    8.100907    0.492509
+  61 H     1.0000    0     1.008    0.508018   10.509372   -1.314284
+  62 H     1.0000    0     1.008    3.184495    8.886835   -2.595184
+  63 H     1.0000    0     1.008   -3.363669    4.861860    0.950297
+  64 H     1.0000    0     1.008   -5.105743    4.660701   -1.883751
+  65 H     1.0000    0     1.008   -4.583320    7.694651   -0.486351
+  66 H     1.0000    0     1.008    0.004904    7.448651   -7.421056
+  67 H     1.0000    0     1.008   -2.645496    9.103083   -6.118978
+  68 H     1.0000    0     1.008   -2.971029    5.870688   -7.078610
+* core charge reduced due to ECP
+
+--------------------------------
+INTERNAL COORDINATES (ANGSTROEM)
+--------------------------------
+ Pt     0   0   0     0.000000000000     0.00000000     0.00000000
+ O      1   0   0     2.097470587330     0.00000000     0.00000000
+ O      1   2   0     2.095870128217   107.72722123     0.00000000
+ P      2   1   3     1.580347173186    92.33061869   177.68402775
+ P      3   1   2     1.580437036224    92.17149650   176.25276644
+ O      5   3   1     1.633709457512   112.06942060   124.60858116
+ O      5   3   1     1.581745980828   103.11529099     4.22187690
+ O      4   2   1     1.634212219416   111.49119140   124.19171550
+ O      4   2   1     1.582995893856   103.12612164     3.08879372
+ C      4   2   1     1.839030296014   114.55804425   239.07938900
+ C      5   3   1     1.839260908725   114.05635279   239.43627170
+ C     11   5   3     1.542221933483   108.74892259   178.12907494
+ C     11   5   3     1.542717349049   106.84891855    58.61198868
+ C     11   5   3     1.542450560796   108.25653259   299.33509218
+ C     10   4   2     1.542163406094   108.31348232   301.55933374
+ C     10   4   2     1.542480734539   106.80582070    60.87055475
+ C     10   4   2     1.542112563021   108.61595394   180.38910679
+ H      6   5   3     0.979330069469   110.14227309   301.74189446
+ H      8   4   2     0.982269948712   111.05251850   308.41072431
+ H     12  11   5     1.108577478673   111.52876850   300.22382245
+ H     12  11   5     1.110141319480   109.01166594   181.21798755
+ H     12  11   5     1.107435372443   111.70901248    61.80767675
+ H     13  11   5     1.108029680532   111.35967654    60.09840317
+ H     13  11   5     1.107967841815   111.50595889   299.28706665
+ H     13  11   5     1.109742077268   109.06659881   179.59545646
+ H     14  11   5     1.107445156330   111.64661637   296.83336866
+ H     14  11   5     1.110155400374   109.18706127   177.25516251
+ H     14  11   5     1.108541975892   111.32588120    58.12457795
+ H     15  10   4     1.108370429479   111.31481988    58.07332884
+ H     15  10   4     1.107454839523   111.65086666   296.80596386
+ H     15  10   4     1.110112932776   109.18420056   177.25760376
+ H     16  10   4     1.107919561873   111.44970291   300.10518482
+ H     16  10   4     1.109759450594   109.11558785   180.54589808
+ H     16  10   4     1.107648333325   111.43203747    60.92138694
+ H     17  10   4     1.107382522003   111.69567962    63.24406133
+ H     17  10   4     1.108706855704   111.45334915   301.85366091
+ H     17  10   4     1.110209804785   109.17265229   182.79320400
+ Si     9   4   2     4.609542756939   151.28242094   118.66019025
+ C     38   9   4     1.901621589934   158.50117190    79.45983434
+ C     38   9   4     1.897016963169    51.07749898   108.12399072
+ C     38   9   4     1.898727329337    88.10949503   225.42064404
+ H     39  38   9     1.110162111690   111.36643212   322.37129465
+ H     39  38   9     1.110133059212   111.37522950   202.25777148
+ H     39  38   9     1.110130863060   111.23129734    82.24109162
+ H     40  38   9     1.110034757969   111.31381965     7.19362073
+ H     40  38   9     1.110304818390   110.95347220   246.86311708
+ H     40  38   9     1.110043521835   110.90759509   127.29231508
+ H     41  38   9     1.110342722913   110.89868932     4.08775830
+ H     41  38   9     1.110251959639   110.52965375   244.95615345
+ H     41  38   9     1.110435261801   111.45732460   125.35006036
+ H     23  13  11     2.487642248974   157.45924064   209.18152467
+ C     38   9   4     1.913003107935    75.01482389   336.95602431
+ C     51  23  13     1.113540615264   158.38644648    72.03956530
+ H     52  38   9     1.113559412197   108.37382078   204.89849745
+ H     52  38   9     1.114622119937   106.71807182    92.16914573
+ Si    53  51  23     1.901545605024   107.96404710   268.79204847
+ H     53  51  23     1.113288702683   104.64039112    22.30841534
+ C     56  53  51     1.901817330913   109.67714574   172.53493720
+ C     56  53  51     1.907643461671   108.92634943    52.63503557
+ C     56  53  51     1.898358539099   111.19401157   293.10410330
+ H     58  56  53     1.109985515848   111.90247941   301.94886455
+ H     58  56  53     1.109905881783   111.39681070   180.99204954
+ H     58  56  53     1.109779048704   110.78392127    61.42795814
+ H     59  56  53     1.112673472680   113.64145515    47.50630573
+ H     59  56  53     1.110318205898   110.06497462   290.07664865
+ H     59  56  53     1.109908703338   112.13196473   170.61586469
+ H     60  56  53     1.109635985573   111.04103178   300.28233650
+ H     60  56  53     1.109821404398   111.39839816   180.34955733
+ H     60  56  53     1.109900604700   111.23488168    60.15274703
+
+---------------------------
+INTERNAL COORDINATES (A.U.)
+---------------------------
+ Pt     0   0   0     0.000000000000     0.00000000     0.00000000
+ O      1   0   0     3.963644984009     0.00000000     0.00000000
+ O      1   2   0     3.960620554596   107.72722123     0.00000000
+ P      2   1   3     2.986423353838    92.33061869   177.68402775
+ P      3   1   2     2.986593170370    92.17149650   176.25276644
+ O      5   3   1     3.087263457095   112.06942060   124.60858116
+ O      5   3   1     2.989066717196   103.11529099     4.22187690
+ O      4   2   1     3.088213539404   111.49119140   124.19171550
+ O      4   2   1     2.991428710511   103.12612164     3.08879372
+ C      4   2   1     3.475263611451   114.55804425   239.07938900
+ C      5   3   1     3.475699406317   114.05635279   239.43627170
+ C     11   5   3     2.914377092010   108.74892259   178.12907494
+ C     11   5   3     2.915313291751   106.84891855    58.61198868
+ C     11   5   3     2.914809135018   108.25653259   299.33509218
+ C     10   4   2     2.914266491273   108.31348232   301.55933374
+ C     10   4   2     2.914866155129   106.80582070    60.87055475
+ C     10   4   2     2.914170411789   108.61595394   180.38910679
+ H      6   5   3     1.850665626011   110.14227309   301.74189446
+ H      8   4   2     1.856221192647   111.05251850   308.41072431
+ H     12  11   5     2.094907832925   111.52876850   300.22382245
+ H     12  11   5     2.097863063767   109.01166594   181.21798755
+ H     12  11   5     2.092749564935   111.70901248    61.80767675
+ H     13  11   5     2.093872644461   111.35967654    60.09840317
+ H     13  11   5     2.093755786222   111.50595889   299.28706665
+ H     13  11   5     2.097108605325   109.06659881   179.59545646
+ H     14  11   5     2.092768053802   111.64661637   296.83336866
+ H     14  11   5     2.097889672801   109.18706127   177.25516251
+ H     14  11   5     2.094840742391   111.32588120    58.12457795
+ H     15  10   4     2.094516566652   111.31481988    58.07332884
+ H     15  10   4     2.092786352385   111.65086666   296.80596386
+ H     15  10   4     2.097809420672   109.18420056   177.25760376
+ H     16  10   4     2.093664550354   111.44970291   300.10518482
+ H     16  10   4     2.097141436153   109.11558785   180.54589808
+ H     16  10   4     2.093152002679   111.43203747    60.92138694
+ H     17  10   4     2.092649692077   111.69567962    63.24406133
+ H     17  10   4     2.095152320082   111.45334915   301.85366091
+ H     17  10   4     2.097992482238   109.17265229   182.79320400
+ Si     9   4   2     8.710773413215   151.28242094   118.66019025
+ C     38   9   4     3.593544015328   158.50117190    79.45983434
+ C     38   9   4     3.584842531792    51.07749898   108.12399072
+ C     38   9   4     3.588074655438    88.10949503   225.42064404
+ H     39  38   9     2.097902355349   111.36643212   322.37129465
+ H     39  38   9     2.097847454123   111.37522950   202.25777148
+ H     39  38   9     2.097843303998   111.23129734    82.24109162
+ H     40  38   9     2.097661691695   111.31381965     7.19362073
+ H     40  38   9     2.098172031931   110.95347220   246.86311708
+ H     40  38   9     2.097678253002   110.90759509   127.29231508
+ H     41  38   9     2.098243661098   110.89868932     4.08775830
+ H     41  38   9     2.098072143367   110.52965375   244.95615345
+ H     41  38   9     2.098418534254   111.45732460   125.35006036
+ H     23  13  11     4.700962569734   157.45924064   209.18152467
+ C     38   9   4     3.615051967338    75.01482389   336.95602431
+ C     51  23  13     2.104286801847   158.38644648    72.03956530
+ H     52  38   9     2.104322322903   108.37382078   204.89849745
+ H     52  38   9     2.106330549491   106.71807182    92.16914573
+ Si    53  51  23     3.593400424657   107.96404710   268.79204847
+ H     53  51  23     2.103810756058   104.64039112    22.30841534
+ C     56  53  51     3.593913912170   109.67714574   172.53493720
+ C     56  53  51     3.604923703724   108.92634943    52.63503557
+ C     56  53  51     3.587377742887   111.19401157   293.10410330
+ H     58  56  53     2.097568637572   111.90247941   301.94886455
+ H     58  56  53     2.097418150999   111.39681070   180.99204954
+ H     58  56  53     2.097178471215   110.78392127    61.42795814
+ H     59  56  53     2.102648139845   113.64145515    47.50630573
+ H     59  56  53     2.098197330654   110.06497462   290.07664865
+ H     59  56  53     2.097423482965   112.13196473   170.61586469
+ H     60  56  53     2.096908121077   111.04103178   300.28233650
+ H     60  56  53     2.097258511876   111.39839816   180.34955733
+ H     60  56  53     2.097408178757   111.23488168    60.15274703
+
+---------------------
+BASIS SET INFORMATION
+---------------------
+There are 6 groups of distinct atoms
+
+ Group   1 Type Pt  : 7s6p5d1f contracted to 6s3p2d1f pattern {211111/411/41/1}
+ Group   2 Type O   : 7s4p1d contracted to 3s2p1d pattern {511/31/1}
+ Group   3 Type P   : 10s7p1d contracted to 4s3p1d pattern {5311/511/1}
+ Group   4 Type C   : 7s4p1d contracted to 3s2p1d pattern {511/31/1}
+ Group   5 Type H   : 4s1p contracted to 2s1p pattern {31/1}
+ Group   6 Type Si  : 10s7p1d contracted to 4s3p1d pattern {5311/511/1}
+
+Atom   0Pt   basis set group =>   1
+Atom   1O    basis set group =>   2
+Atom   2O    basis set group =>   2
+Atom   3P    basis set group =>   3
+Atom   4P    basis set group =>   3
+Atom   5O    basis set group =>   2
+Atom   6O    basis set group =>   2
+Atom   7O    basis set group =>   2
+Atom   8O    basis set group =>   2
+Atom   9C    basis set group =>   4
+Atom  10C    basis set group =>   4
+Atom  11C    basis set group =>   4
+Atom  12C    basis set group =>   4
+Atom  13C    basis set group =>   4
+Atom  14C    basis set group =>   4
+Atom  15C    basis set group =>   4
+Atom  16C    basis set group =>   4
+Atom  17H    basis set group =>   5
+Atom  18H    basis set group =>   5
+Atom  19H    basis set group =>   5
+Atom  20H    basis set group =>   5
+Atom  21H    basis set group =>   5
+Atom  22H    basis set group =>   5
+Atom  23H    basis set group =>   5
+Atom  24H    basis set group =>   5
+Atom  25H    basis set group =>   5
+Atom  26H    basis set group =>   5
+Atom  27H    basis set group =>   5
+Atom  28H    basis set group =>   5
+Atom  29H    basis set group =>   5
+Atom  30H    basis set group =>   5
+Atom  31H    basis set group =>   5
+Atom  32H    basis set group =>   5
+Atom  33H    basis set group =>   5
+Atom  34H    basis set group =>   5
+Atom  35H    basis set group =>   5
+Atom  36H    basis set group =>   5
+Atom  37Si   basis set group =>   6
+Atom  38C    basis set group =>   4
+Atom  39C    basis set group =>   4
+Atom  40C    basis set group =>   4
+Atom  41H    basis set group =>   5
+Atom  42H    basis set group =>   5
+Atom  43H    basis set group =>   5
+Atom  44H    basis set group =>   5
+Atom  45H    basis set group =>   5
+Atom  46H    basis set group =>   5
+Atom  47H    basis set group =>   5
+Atom  48H    basis set group =>   5
+Atom  49H    basis set group =>   5
+Atom  50H    basis set group =>   5
+Atom  51C    basis set group =>   4
+Atom  52C    basis set group =>   4
+Atom  53H    basis set group =>   5
+Atom  54H    basis set group =>   5
+Atom  55Si   basis set group =>   6
+Atom  56H    basis set group =>   5
+Atom  57C    basis set group =>   4
+Atom  58C    basis set group =>   4
+Atom  59C    basis set group =>   4
+Atom  60H    basis set group =>   5
+Atom  61H    basis set group =>   5
+Atom  62H    basis set group =>   5
+Atom  63H    basis set group =>   5
+Atom  64H    basis set group =>   5
+Atom  65H    basis set group =>   5
+Atom  66H    basis set group =>   5
+Atom  67H    basis set group =>   5
+Atom  68H    basis set group =>   5
+---------------------------------
+AUXILIARY/J BASIS SET INFORMATION
+---------------------------------
+There are 6 groups of distinct atoms
+
+ Group   1 Type Pt  : 11s5p5d3f3g contracted to 8s5p5d2f3g pattern {41111111/11111/11111/21/111}
+ Group   2 Type O   : 12s5p4d2f1g contracted to 6s4p3d1f1g pattern {711111/2111/211/2/1}
+ Group   3 Type P   : 14s5p5d2f1g contracted to 8s4p3d1f1g pattern {71111111/2111/311/2/1}
+ Group   4 Type C   : 12s5p4d2f1g contracted to 6s4p3d1f1g pattern {711111/2111/211/2/1}
+ Group   5 Type H   : 5s2p1d contracted to 3s1p1d pattern {311/2/1}
+ Group   6 Type Si  : 14s5p5d2f1g contracted to 8s4p3d1f1g pattern {71111111/2111/311/2/1}
+
+Atom   0Pt   basis set group =>   1
+Atom   1O    basis set group =>   2
+Atom   2O    basis set group =>   2
+Atom   3P    basis set group =>   3
+Atom   4P    basis set group =>   3
+Atom   5O    basis set group =>   2
+Atom   6O    basis set group =>   2
+Atom   7O    basis set group =>   2
+Atom   8O    basis set group =>   2
+Atom   9C    basis set group =>   4
+Atom  10C    basis set group =>   4
+Atom  11C    basis set group =>   4
+Atom  12C    basis set group =>   4
+Atom  13C    basis set group =>   4
+Atom  14C    basis set group =>   4
+Atom  15C    basis set group =>   4
+Atom  16C    basis set group =>   4
+Atom  17H    basis set group =>   5
+Atom  18H    basis set group =>   5
+Atom  19H    basis set group =>   5
+Atom  20H    basis set group =>   5
+Atom  21H    basis set group =>   5
+Atom  22H    basis set group =>   5
+Atom  23H    basis set group =>   5
+Atom  24H    basis set group =>   5
+Atom  25H    basis set group =>   5
+Atom  26H    basis set group =>   5
+Atom  27H    basis set group =>   5
+Atom  28H    basis set group =>   5
+Atom  29H    basis set group =>   5
+Atom  30H    basis set group =>   5
+Atom  31H    basis set group =>   5
+Atom  32H    basis set group =>   5
+Atom  33H    basis set group =>   5
+Atom  34H    basis set group =>   5
+Atom  35H    basis set group =>   5
+Atom  36H    basis set group =>   5
+Atom  37Si   basis set group =>   6
+Atom  38C    basis set group =>   4
+Atom  39C    basis set group =>   4
+Atom  40C    basis set group =>   4
+Atom  41H    basis set group =>   5
+Atom  42H    basis set group =>   5
+Atom  43H    basis set group =>   5
+Atom  44H    basis set group =>   5
+Atom  45H    basis set group =>   5
+Atom  46H    basis set group =>   5
+Atom  47H    basis set group =>   5
+Atom  48H    basis set group =>   5
+Atom  49H    basis set group =>   5
+Atom  50H    basis set group =>   5
+Atom  51C    basis set group =>   4
+Atom  52C    basis set group =>   4
+Atom  53H    basis set group =>   5
+Atom  54H    basis set group =>   5
+Atom  55Si   basis set group =>   6
+Atom  56H    basis set group =>   5
+Atom  57C    basis set group =>   4
+Atom  58C    basis set group =>   4
+Atom  59C    basis set group =>   4
+Atom  60H    basis set group =>   5
+Atom  61H    basis set group =>   5
+Atom  62H    basis set group =>   5
+Atom  63H    basis set group =>   5
+Atom  64H    basis set group =>   5
+Atom  65H    basis set group =>   5
+Atom  66H    basis set group =>   5
+Atom  67H    basis set group =>   5
+Atom  68H    basis set group =>   5
+-------------------------
+ECP PARAMETER INFORMATION
+-------------------------
+
+ Group 1, Type Pt ECP Def2-ECP (replacing 60 core electrons, lmax=3)
+
+Atom   0Pt   ECP group =>   1
+
+
+
+           ************************************************************
+           *        Program running with 24 parallel MPI-processes    *
+           *              working on a common directory               *
+           ************************************************************
+------------------------------------------------------------------------------
+                             ORCA STARTUP CALCULATIONS
+                           -- RI-GTO INTEGRALS CHOSEN --
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                   ___                                                        
+                  /   \      - P O W E R E D   B Y -                         
+                 /     \                                                     
+                 |  |  |   _    _      __       _____    __    __             
+                 |  |  |  | |  | |    /  \     |  _  \  |  |  /  |          
+                  \  \/   | |  | |   /    \    | | | |  |  | /  /          
+                 / \  \   | |__| |  /  /\  \   | |_| |  |  |/  /          
+                |  |  |   |  __  | /  /__\  \  |    /   |      \           
+                |  |  |   | |  | | |   __   |  |    \   |  |\   \          
+                \     /   | |  | | |  |  |  |  | |\  \  |  | \   \       
+                 \___/    |_|  |_| |__|  |__|  |_| \__\ |__|  \__/        
+                                                                              
+                      - O R C A' S   B I G   F R I E N D -                    
+                                      &                                       
+                       - I N T E G R A L  F E E D E R -                       
+                                                                              
+ v1 FN, 2020, v2 2021, v3 2022-2024                                           
+------------------------------------------------------------------------------
+
+
+----------------------
+SHARK INTEGRAL PACKAGE
+----------------------
+
+Number of atoms                             ...     69
+Number of basis functions                   ...    622
+Number of shells                            ...    302
+Maximum angular momentum                    ...      3
+Integral batch strategy                     ... SHARK/LIBINT Hybrid
+RI-J (if used) integral strategy            ... SPLIT-RIJ (Revised 2003 algorithm where possible)
+Printlevel                                  ...      1
+Contraction scheme used                     ... SEGMENTED contraction
+Prescreening option                         ... SCHWARTZ
+   Thresh                                   ... 2.500e-11
+   Tcut                                     ... 2.500e-12
+   Tpresel                                  ... 2.500e-12 
+Coulomb Range Separation                    ... NOT USED
+Exchange Range Separation                   ... NOT USED
+Multipole approximations                    ... NOT USED
+Finite Nucleus Model                        ... NOT USED
+CABS basis                                  ... NOT available
+Auxiliary Coulomb fitting basis             ... AVAILABLE
+   # of basis functions in Aux-J            ...   1833
+   # of shells in Aux-J                     ...    631
+   Maximum angular momentum in Aux-J        ...      4
+Auxiliary J/K fitting basis                 ... NOT available
+Auxiliary Correlation fitting basis         ... NOT available
+Auxiliary 'external' fitting basis          ... NOT available
+
+Checking pre-screening integrals            ... done (  0.0 sec) Dimension = 302
+   => SHARK Basis and OBASIS are compatible. Storing Pre-screening
+Shell pair information
+Shell pair cut-off parameter TPreSel        ...   2.5e-12
+Total number of shell pairs                 ...     45753
+Shell pairs after pre-screening             ...     28722
+Total number of primitive shell pairs       ...    160412
+Primitive shell pairs kept                  ...     60897
+          la=0 lb=0:  10090 shell pairs
+          la=1 lb=0:  10867 shell pairs
+          la=1 lb=1:   2950 shell pairs
+          la=2 lb=0:   2886 shell pairs
+          la=2 lb=1:   1493 shell pairs
+          la=2 lb=2:    209 shell pairs
+          la=3 lb=0:    132 shell pairs
+          la=3 lb=1:     70 shell pairs
+          la=3 lb=2:     24 shell pairs
+          la=3 lb=3:      1 shell pairs
+
+Checking whether 4 symmetric matrices of dimension 622 fit in memory
+:Max Core in MB      =   6000.00
+ MB in use           =     37.67
+ MB left             =   5962.33
+ MB needed           =      5.91
+ Data fit in memory  = YES
+Calculating RI/J V-Matrix + Cholesky decomp.... done (  0.4 sec)
+Calculating Nuclear repulsion               ... done (  0.0 sec) ENN=   4036.121833954067 Eh
+
+Diagonalization of the overlap matrix:
+Smallest eigenvalue                        ... 1.904e-03
+Time for diagonalization                   ...    0.085 sec
+Threshold for overlap eigenvalues          ... 1.000e-07
+Number of eigenvalues below threshold      ... 0
+Time for construction of square roots      ...    0.062 sec
+Total time needed                          ...    0.155 sec
+
+-------------------
+DFT GRID GENERATION
+-------------------
+
+General Integration Accuracy     IntAcc      ... 4.388
+Radial Grid Type                 RadialGrid  ... OptM3 with GC (2021)
+Angular Grid (max. ang.)         AngularGrid ... 4 (Lebedev-302)
+Angular grid pruning method      GridPruning ... 4 (adaptive)
+Weight generation scheme         WeightScheme... mBecke (2022)
+Basis function cutoff            BFCut       ... 1.0000e-11
+Integration weight cutoff        WCut        ... 1.0000e-14
+Partially contracted basis set               ... off
+Rotationally invariant grid construction     ... off
+Angular grids for H and He will be reduced by one unit
+
+Total number of grid points                  ...   303561
+Total number of batches                      ...     4773
+Average number of points per batch           ...       63
+Average number of grid points per atom       ...     4399
+Grids setup in   2.3 sec
+Initializing property integral containers    ... done (  0.1 sec)
+
+SHARK setup successfully completed in   5.6 seconds
+
+Maximum memory used throughout the entire STARTUP-calculation: 93.6 MB
+[1775925426.306433] [e003:103912:0]           mpool.c:55   UCX  WARN  object 0x42ea100 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.306515] [e003:103912:0]           mpool.c:55   UCX  WARN  object 0x42ea2c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.306537] [e003:103912:0]           mpool.c:55   UCX  WARN  object 0x42ea480 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.306557] [e003:103912:0]           mpool.c:55   UCX  WARN  object 0x42ea640 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.306575] [e003:103912:0]           mpool.c:55   UCX  WARN  object 0x42ea800 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.306594] [e003:103912:0]           mpool.c:55   UCX  WARN  object 0x42ea9c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.306611] [e003:103912:0]           mpool.c:55   UCX  WARN  object 0x42eab80 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.306629] [e003:103912:0]           mpool.c:55   UCX  WARN  object 0x42ead40 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.306646] [e003:103912:0]           mpool.c:55   UCX  WARN  object 0x42eaf00 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.306810] [e003:103931:0]           mpool.c:55   UCX  WARN  object 0x2fb9100 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.306833] [e003:103931:0]           mpool.c:55   UCX  WARN  object 0x2fb92c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.306843] [e003:103931:0]           mpool.c:55   UCX  WARN  object 0x2fb9480 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.306851] [e003:103931:0]           mpool.c:55   UCX  WARN  object 0x2fb9640 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.306858] [e003:103931:0]           mpool.c:55   UCX  WARN  object 0x2fb9800 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.306866] [e003:103931:0]           mpool.c:55   UCX  WARN  object 0x2fb99c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.306873] [e003:103931:0]           mpool.c:55   UCX  WARN  object 0x2fb9b80 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.306882] [e003:103931:0]           mpool.c:55   UCX  WARN  object 0x2fb9d40 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.306889] [e003:103931:0]           mpool.c:55   UCX  WARN  object 0x2fb9f00 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.307310] [e003:103915:0]           mpool.c:55   UCX  WARN  object 0x3419000 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.307312] [e003:103919:0]           mpool.c:55   UCX  WARN  object 0x36aff40 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.307332] [e003:103919:0]           mpool.c:55   UCX  WARN  object 0x36b0100 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.307350] [e003:103919:0]           mpool.c:55   UCX  WARN  object 0x36b02c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.307361] [e003:103919:0]           mpool.c:55   UCX  WARN  object 0x36b0480 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.307371] [e003:103919:0]           mpool.c:55   UCX  WARN  object 0x36b0640 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.307381] [e003:103919:0]           mpool.c:55   UCX  WARN  object 0x36b0800 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.307393] [e003:103915:0]           mpool.c:55   UCX  WARN  object 0x34191c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.307408] [e003:103915:0]           mpool.c:55   UCX  WARN  object 0x3419380 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.307419] [e003:103915:0]           mpool.c:55   UCX  WARN  object 0x3419540 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.307429] [e003:103915:0]           mpool.c:55   UCX  WARN  object 0x3419700 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.307439] [e003:103915:0]           mpool.c:55   UCX  WARN  object 0x34198c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.307448] [e003:103915:0]           mpool.c:55   UCX  WARN  object 0x3419a80 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.307456] [e003:103915:0]           mpool.c:55   UCX  WARN  object 0x3419c40 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.307466] [e003:103915:0]           mpool.c:55   UCX  WARN  object 0x3419e00 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.307478] [e003:103919:0]           mpool.c:55   UCX  WARN  object 0x36b09c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.307490] [e003:103915:0]           mpool.c:55   UCX  WARN  object 0x3419fc0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.307510] [e003:103919:0]           mpool.c:55   UCX  WARN  object 0x36b0b80 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.307518] [e003:103919:0]           mpool.c:55   UCX  WARN  object 0x36b0d40 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.307529] [e003:103919:0]           mpool.c:55   UCX  WARN  object 0x36b0f00 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.307615] [e003:103916:0]           mpool.c:55   UCX  WARN  object 0x42ba000 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.307634] [e003:103916:0]           mpool.c:55   UCX  WARN  object 0x42ba1c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.307651] [e003:103916:0]           mpool.c:55   UCX  WARN  object 0x42ba380 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.307663] [e003:103916:0]           mpool.c:55   UCX  WARN  object 0x42ba540 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.307673] [e003:103916:0]           mpool.c:55   UCX  WARN  object 0x42ba700 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.307682] [e003:103916:0]           mpool.c:55   UCX  WARN  object 0x42ba8c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.307691] [e003:103916:0]           mpool.c:55   UCX  WARN  object 0x42baa80 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.307700] [e003:103916:0]           mpool.c:55   UCX  WARN  object 0x42bac40 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.307710] [e003:103916:0]           mpool.c:55   UCX  WARN  object 0x42bae00 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.307707] [e003:103933:0]           mpool.c:55   UCX  WARN  object 0x4eb9100 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307719] [e003:103916:0]           mpool.c:55   UCX  WARN  object 0x42bafc0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.307715] [e003:103913:0]           mpool.c:55   UCX  WARN  object 0x35e3100 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307733] [e003:103913:0]           mpool.c:55   UCX  WARN  object 0x35e32c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307742] [e003:103933:0]           mpool.c:55   UCX  WARN  object 0x4eb92c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307752] [e003:103933:0]           mpool.c:55   UCX  WARN  object 0x4eb9480 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307761] [e003:103933:0]           mpool.c:55   UCX  WARN  object 0x4eb9640 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307753] [e003:103913:0]           mpool.c:55   UCX  WARN  object 0x35e3480 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307768] [e003:103933:0]           mpool.c:55   UCX  WARN  object 0x4eb9800 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307775] [e003:103933:0]           mpool.c:55   UCX  WARN  object 0x4eb99c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307770] [e003:103921:0]           mpool.c:55   UCX  WARN  object 0x4a1e000 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307771] [e003:103913:0]           mpool.c:55   UCX  WARN  object 0x35e3640 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307789] [e003:103913:0]           mpool.c:55   UCX  WARN  object 0x35e3800 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307798] [e003:103913:0]           mpool.c:55   UCX  WARN  object 0x35e39c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307783] [e003:103933:0]           mpool.c:55   UCX  WARN  object 0x4eb9b80 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307790] [e003:103933:0]           mpool.c:55   UCX  WARN  object 0x4eb9d40 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307797] [e003:103933:0]           mpool.c:55   UCX  WARN  object 0x4eb9f00 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307806] [e003:103913:0]           mpool.c:55   UCX  WARN  object 0x35e3b80 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307818] [e003:103913:0]           mpool.c:55   UCX  WARN  object 0x35e3d40 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307825] [e003:103913:0]           mpool.c:55   UCX  WARN  object 0x35e3f00 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307814] [e003:103921:0]           mpool.c:55   UCX  WARN  object 0x4a1e1c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307836] [e003:103921:0]           mpool.c:55   UCX  WARN  object 0x4a1e380 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307816] [e003:103922:0]           mpool.c:55   UCX  WARN  object 0x42ecf40 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307837] [e003:103922:0]           mpool.c:55   UCX  WARN  object 0x42ed100 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307846] [e003:103922:0]           mpool.c:55   UCX  WARN  object 0x42ed2c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307849] [e003:103921:0]           mpool.c:55   UCX  WARN  object 0x4a1e540 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307854] [e003:103922:0]           mpool.c:55   UCX  WARN  object 0x42ed480 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307862] [e003:103922:0]           mpool.c:55   UCX  WARN  object 0x42ed640 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307866] [e003:103921:0]           mpool.c:55   UCX  WARN  object 0x4a1e700 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307870] [e003:103922:0]           mpool.c:55   UCX  WARN  object 0x42ed800 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307877] [e003:103922:0]           mpool.c:55   UCX  WARN  object 0x42ed9c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307884] [e003:103922:0]           mpool.c:55   UCX  WARN  object 0x42edb80 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307892] [e003:103922:0]           mpool.c:55   UCX  WARN  object 0x42edd40 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307873] [e003:103934:0]           mpool.c:55   UCX  WARN  object 0x3271100 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307906] [e003:103934:0]           mpool.c:55   UCX  WARN  object 0x32712c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307885] [e003:103921:0]           mpool.c:55   UCX  WARN  object 0x4a1e8c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307892] [e003:103921:0]           mpool.c:55   UCX  WARN  object 0x4a1ea80 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307900] [e003:103921:0]           mpool.c:55   UCX  WARN  object 0x4a1ec40 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307907] [e003:103921:0]           mpool.c:55   UCX  WARN  object 0x4a1ee00 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307916] [e003:103921:0]           mpool.c:55   UCX  WARN  object 0x4a1efc0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307899] [e003:103922:0]           mpool.c:55   UCX  WARN  object 0x42edf00 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307911] [e003:103927:0]           mpool.c:55   UCX  WARN  object 0x4468100 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.307927] [e003:103927:0]           mpool.c:55   UCX  WARN  object 0x44682c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.307919] [e003:103934:0]           mpool.c:55   UCX  WARN  object 0x3271480 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307927] [e003:103934:0]           mpool.c:55   UCX  WARN  object 0x3271640 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307936] [e003:103934:0]           mpool.c:55   UCX  WARN  object 0x3271800 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307937] [e003:103927:0]           mpool.c:55   UCX  WARN  object 0x4468480 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.307944] [e003:103927:0]           mpool.c:55   UCX  WARN  object 0x4468640 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.307954] [e003:103927:0]           mpool.c:55   UCX  WARN  object 0x4468800 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.307935] [e003:103928:0]           mpool.c:55   UCX  WARN  object 0x4be0100 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.307957] [e003:103928:0]           mpool.c:55   UCX  WARN  object 0x4be02c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.307966] [e003:103928:0]           mpool.c:55   UCX  WARN  object 0x4be0480 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.307944] [e003:103934:0]           mpool.c:55   UCX  WARN  object 0x32719c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307954] [e003:103934:0]           mpool.c:55   UCX  WARN  object 0x3271b80 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307963] [e003:103934:0]           mpool.c:55   UCX  WARN  object 0x3271d40 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307971] [e003:103934:0]           mpool.c:55   UCX  WARN  object 0x3271f00 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.307963] [e003:103927:0]           mpool.c:55   UCX  WARN  object 0x44689c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.307971] [e003:103927:0]           mpool.c:55   UCX  WARN  object 0x4468b80 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.307981] [e003:103927:0]           mpool.c:55   UCX  WARN  object 0x4468d40 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.307987] [e003:103927:0]           mpool.c:55   UCX  WARN  object 0x4468f00 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 122880 rendezvous zero-copy read from remote cma/memory 9803.2 M was not returned to mpool ucp_requests
+[1775925426.307976] [e003:103928:0]           mpool.c:55   UCX  WARN  object 0x4be0640 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.307987] [e003:103928:0]           mpool.c:55   UCX  WARN  object 0x4be0800 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.307997] [e003:103928:0]           mpool.c:55   UCX  WARN  object 0x4be09c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.308006] [e003:103928:0]           mpool.c:55   UCX  WARN  object 0x4be0b80 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.308015] [e003:103928:0]           mpool.c:55   UCX  WARN  object 0x4be0d40 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.307999] [e003:103920:0]           mpool.c:55   UCX  WARN  object 0x3a1d000 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.308018] [e003:103920:0]           mpool.c:55   UCX  WARN  object 0x3a1d1c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.308025] [e003:103928:0]           mpool.c:55   UCX  WARN  object 0x4be0f00 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.308027] [e003:103932:0]           mpool.c:55   UCX  WARN  object 0x4d481c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.308038] [e003:103920:0]           mpool.c:55   UCX  WARN  object 0x3a1d380 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.308053] [e003:103920:0]           mpool.c:55   UCX  WARN  object 0x3a1d540 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.308047] [e003:103932:0]           mpool.c:55   UCX  WARN  object 0x4d48380 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.308063] [e003:103920:0]           mpool.c:55   UCX  WARN  object 0x3a1d700 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.308065] [e003:103932:0]           mpool.c:55   UCX  WARN  object 0x4d48540 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.308073] [e003:103932:0]           mpool.c:55   UCX  WARN  object 0x4d48700 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.308078] [e003:103920:0]           mpool.c:55   UCX  WARN  object 0x3a1d8c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.308085] [e003:103932:0]           mpool.c:55   UCX  WARN  object 0x4d488c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.308093] [e003:103932:0]           mpool.c:55   UCX  WARN  object 0x4d48a80 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.308100] [e003:103932:0]           mpool.c:55   UCX  WARN  object 0x4d48c40 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.308080] [e003:103917:0]           mpool.c:55   UCX  WARN  object 0x4cb6f40 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308103] [e003:103917:0]           mpool.c:55   UCX  WARN  object 0x4cb7100 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308093] [e003:103920:0]           mpool.c:55   UCX  WARN  object 0x3a1da80 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.308106] [e003:103932:0]           mpool.c:55   UCX  WARN  object 0x4d48e00 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.308113] [e003:103932:0]           mpool.c:55   UCX  WARN  object 0x4d48fc0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.308113] [e003:103917:0]           mpool.c:55   UCX  WARN  object 0x4cb72c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308115] [e003:103920:0]           mpool.c:55   UCX  WARN  object 0x3a1dc40 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.308121] [e003:103917:0]           mpool.c:55   UCX  WARN  object 0x4cb7480 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308119] [e003:103918:0]           mpool.c:55   UCX  WARN  object 0x3031f40 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308139] [e003:103918:0]           mpool.c:55   UCX  WARN  object 0x3032100 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308129] [e003:103917:0]           mpool.c:55   UCX  WARN  object 0x4cb7640 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308137] [e003:103917:0]           mpool.c:55   UCX  WARN  object 0x4cb7800 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308131] [e003:103920:0]           mpool.c:55   UCX  WARN  object 0x3a1de00 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.308144] [e003:103917:0]           mpool.c:55   UCX  WARN  object 0x4cb79c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308147] [e003:103918:0]           mpool.c:55   UCX  WARN  object 0x30322c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308156] [e003:103918:0]           mpool.c:55   UCX  WARN  object 0x3032480 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308163] [e003:103918:0]           mpool.c:55   UCX  WARN  object 0x3032640 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308151] [e003:103917:0]           mpool.c:55   UCX  WARN  object 0x4cb7b80 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308159] [e003:103917:0]           mpool.c:55   UCX  WARN  object 0x4cb7d40 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308167] [e003:103917:0]           mpool.c:55   UCX  WARN  object 0x4cb7f00 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308164] [e003:103920:0]           mpool.c:55   UCX  WARN  object 0x3a1dfc0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 116992 rendezvous zero-copy read from remote cma/memory 9739.8 M was not returned to mpool ucp_requests
+[1775925426.308172] [e003:103918:0]           mpool.c:55   UCX  WARN  object 0x3032800 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308179] [e003:103918:0]           mpool.c:55   UCX  WARN  object 0x30329c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308177] [e003:103923:0]           mpool.c:55   UCX  WARN  object 0x4acee40 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 26880 rendezvous zero-copy read from remote cma/memory 6708.0 MB was not returned to mpool ucp_requests
+[1775925426.308198] [e003:103923:0]           mpool.c:55   UCX  WARN  object 0x4acf000 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 111360 rendezvous zero-copy read from remote cma/memory 9673.9 M was not returned to mpool ucp_requests
+[1775925426.308187] [e003:103918:0]           mpool.c:55   UCX  WARN  object 0x3032b80 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308195] [e003:103918:0]           mpool.c:55   UCX  WARN  object 0x3032d40 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308203] [e003:103918:0]           mpool.c:55   UCX  WARN  object 0x3032f00 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308196] [e003:103926:0]           mpool.c:55   UCX  WARN  object 0x31c2d80 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 25088 rendezvous zero-copy read from remote cma/memory 6519.8 MB was not returned to mpool ucp_requests
+[1775925426.308200] [e003:103929:0]           mpool.c:55   UCX  WARN  object 0x4dc5100 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308218] [e003:103929:0]           mpool.c:55   UCX  WARN  object 0x4dc52c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308226] [e003:103929:0]           mpool.c:55   UCX  WARN  object 0x4dc5480 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308208] [e003:103923:0]           mpool.c:55   UCX  WARN  object 0x4acf1c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 111360 rendezvous zero-copy read from remote cma/memory 9673.9 M was not returned to mpool ucp_requests
+[1775925426.308216] [e003:103923:0]           mpool.c:55   UCX  WARN  object 0x4acf380 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 111360 rendezvous zero-copy read from remote cma/memory 9673.9 M was not returned to mpool ucp_requests
+[1775925426.308225] [e003:103923:0]           mpool.c:55   UCX  WARN  object 0x4acf540 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 111360 rendezvous zero-copy read from remote cma/memory 9673.9 M was not returned to mpool ucp_requests
+[1775925426.308233] [e003:103923:0]           mpool.c:55   UCX  WARN  object 0x4acf700 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 111360 rendezvous zero-copy read from remote cma/memory 9673.9 M was not returned to mpool ucp_requests
+[1775925426.308233] [e003:103929:0]           mpool.c:55   UCX  WARN  object 0x4dc5640 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308241] [e003:103929:0]           mpool.c:55   UCX  WARN  object 0x4dc5800 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308241] [e003:103923:0]           mpool.c:55   UCX  WARN  object 0x4acf8c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 111360 rendezvous zero-copy read from remote cma/memory 9673.9 M was not returned to mpool ucp_requests
+[1775925426.308249] [e003:103923:0]           mpool.c:55   UCX  WARN  object 0x4acfa80 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 111360 rendezvous zero-copy read from remote cma/memory 9673.9 M was not returned to mpool ucp_requests
+[1775925426.308258] [e003:103923:0]           mpool.c:55   UCX  WARN  object 0x4acfc40 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 111360 rendezvous zero-copy read from remote cma/memory 9673.9 M was not returned to mpool ucp_requests
+[1775925426.308248] [e003:103929:0]           mpool.c:55   UCX  WARN  object 0x4dc59c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308257] [e003:103929:0]           mpool.c:55   UCX  WARN  object 0x4dc5b80 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308266] [e003:103929:0]           mpool.c:55   UCX  WARN  object 0x4dc5d40 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308273] [e003:103929:0]           mpool.c:55   UCX  WARN  object 0x4dc5f00 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308236] [e003:103926:0]           mpool.c:55   UCX  WARN  object 0x31c2f40 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 103936 rendezvous zero-copy read from remote cma/memory 9577.6 M was not returned to mpool ucp_requests
+[1775925426.308270] [e003:103926:0]           mpool.c:55   UCX  WARN  object 0x31c3100 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 103936 rendezvous zero-copy read from remote cma/memory 9577.6 M was not returned to mpool ucp_requests
+[1775925426.308283] [e003:103926:0]           mpool.c:55   UCX  WARN  object 0x31c32c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 103936 rendezvous zero-copy read from remote cma/memory 9577.6 M was not returned to mpool ucp_requests
+[1775925426.308290] [e003:103926:0]           mpool.c:55   UCX  WARN  object 0x31c3480 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 103936 rendezvous zero-copy read from remote cma/memory 9577.6 M was not returned to mpool ucp_requests
+[1775925426.308245] [e003:103914:0]           mpool.c:55   UCX  WARN  object 0x46981c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308264] [e003:103914:0]           mpool.c:55   UCX  WARN  object 0x4698380 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308273] [e003:103914:0]           mpool.c:55   UCX  WARN  object 0x4698540 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308290] [e003:103914:0]           mpool.c:55   UCX  WARN  object 0x4698700 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308299] [e003:103914:0]           mpool.c:55   UCX  WARN  object 0x46988c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308264] [e003:103923:0]           mpool.c:55   UCX  WARN  object 0x4acfe00 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 111360 rendezvous zero-copy read from remote cma/memory 9673.9 M was not returned to mpool ucp_requests
+[1775925426.308298] [e003:103926:0]           mpool.c:55   UCX  WARN  object 0x31c3640 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 103936 rendezvous zero-copy read from remote cma/memory 9577.6 M was not returned to mpool ucp_requests
+[1775925426.308306] [e003:103926:0]           mpool.c:55   UCX  WARN  object 0x31c3800 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 103936 rendezvous zero-copy read from remote cma/memory 9577.6 M was not returned to mpool ucp_requests
+[1775925426.308306] [e003:103914:0]           mpool.c:55   UCX  WARN  object 0x4698a80 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308314] [e003:103914:0]           mpool.c:55   UCX  WARN  object 0x4698c40 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308314] [e003:103926:0]           mpool.c:55   UCX  WARN  object 0x31c39c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 103936 rendezvous zero-copy read from remote cma/memory 9577.6 M was not returned to mpool ucp_requests
+[1775925426.308323] [e003:103926:0]           mpool.c:55   UCX  WARN  object 0x31c3b80 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 103936 rendezvous zero-copy read from remote cma/memory 9577.6 M was not returned to mpool ucp_requests
+[1775925426.308329] [e003:103926:0]           mpool.c:55   UCX  WARN  object 0x31c3d40 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 103936 rendezvous zero-copy read from remote cma/memory 9577.6 M was not returned to mpool ucp_requests
+[1775925426.308340] [e003:103926:0]           mpool.c:55   UCX  WARN  object 0x31c3f00 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 103936 rendezvous zero-copy read from remote cma/memory 9577.6 M was not returned to mpool ucp_requests
+[1775925426.308317] [e003:103923:0]           mpool.c:55   UCX  WARN  object 0x4acffc0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 111360 rendezvous zero-copy read from remote cma/memory 9673.9 M was not returned to mpool ucp_requests
+[1775925426.308334] [e003:103914:0]           mpool.c:55   UCX  WARN  object 0x4698e00 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308341] [e003:103924:0]           mpool.c:55   UCX  WARN  object 0x3436d80 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 25592 rendezvous zero-copy read from remote cma/memory 6574.3 MB was not returned to mpool ucp_requests
+[1775925426.308350] [e003:103914:0]           mpool.c:55   UCX  WARN  object 0x4698fc0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308349] [e003:103925:0]           mpool.c:55   UCX  WARN  object 0x4962d80 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 25088 rendezvous zero-copy read from remote cma/memory 6519.8 MB was not returned to mpool ucp_requests
+[1775925426.308361] [e003:103924:0]           mpool.c:55   UCX  WARN  object 0x3436f40 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 106024 rendezvous zero-copy read from remote cma/memory 9605.9 M was not returned to mpool ucp_requests
+[1775925426.308370] [e003:103924:0]           mpool.c:55   UCX  WARN  object 0x3437100 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 106024 rendezvous zero-copy read from remote cma/memory 9605.9 M was not returned to mpool ucp_requests
+[1775925426.308385] [e003:103924:0]           mpool.c:55   UCX  WARN  object 0x34372c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 106024 rendezvous zero-copy read from remote cma/memory 9605.9 M was not returned to mpool ucp_requests
+[1775925426.308401] [e003:103924:0]           mpool.c:55   UCX  WARN  object 0x3437480 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 106024 rendezvous zero-copy read from remote cma/memory 9605.9 M was not returned to mpool ucp_requests
+[1775925426.308385] [e003:103925:0]           mpool.c:55   UCX  WARN  object 0x4962f40 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 103936 rendezvous zero-copy read from remote cma/memory 9577.6 M was not returned to mpool ucp_requests
+[1775925426.308394] [e003:103925:0]           mpool.c:55   UCX  WARN  object 0x4963100 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 103936 rendezvous zero-copy read from remote cma/memory 9577.6 M was not returned to mpool ucp_requests
+[1775925426.308406] [e003:103925:0]           mpool.c:55   UCX  WARN  object 0x49632c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 103936 rendezvous zero-copy read from remote cma/memory 9577.6 M was not returned to mpool ucp_requests
+[1775925426.308412] [e003:103924:0]           mpool.c:55   UCX  WARN  object 0x3437640 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 106024 rendezvous zero-copy read from remote cma/memory 9605.9 M was not returned to mpool ucp_requests
+[1775925426.308425] [e003:103924:0]           mpool.c:55   UCX  WARN  object 0x3437800 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 106024 rendezvous zero-copy read from remote cma/memory 9605.9 M was not returned to mpool ucp_requests
+[1775925426.308417] [e003:103925:0]           mpool.c:55   UCX  WARN  object 0x4963480 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 103936 rendezvous zero-copy read from remote cma/memory 9577.6 M was not returned to mpool ucp_requests
+[1775925426.308429] [e003:103925:0]           mpool.c:55   UCX  WARN  object 0x4963640 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 103936 rendezvous zero-copy read from remote cma/memory 9577.6 M was not returned to mpool ucp_requests
+[1775925426.308435] [e003:103924:0]           mpool.c:55   UCX  WARN  object 0x34379c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 106024 rendezvous zero-copy read from remote cma/memory 9605.9 M was not returned to mpool ucp_requests
+[1775925426.308446] [e003:103924:0]           mpool.c:55   UCX  WARN  object 0x3437b80 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 106024 rendezvous zero-copy read from remote cma/memory 9605.9 M was not returned to mpool ucp_requests
+[1775925426.308439] [e003:103925:0]           mpool.c:55   UCX  WARN  object 0x4963800 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 103936 rendezvous zero-copy read from remote cma/memory 9577.6 M was not returned to mpool ucp_requests
+[1775925426.308451] [e003:103925:0]           mpool.c:55   UCX  WARN  object 0x49639c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 103936 rendezvous zero-copy read from remote cma/memory 9577.6 M was not returned to mpool ucp_requests
+[1775925426.308458] [e003:103924:0]           mpool.c:55   UCX  WARN  object 0x3437d40 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 106024 rendezvous zero-copy read from remote cma/memory 9605.9 M was not returned to mpool ucp_requests
+[1775925426.308461] [e003:103925:0]           mpool.c:55   UCX  WARN  object 0x4963b80 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 103936 rendezvous zero-copy read from remote cma/memory 9577.6 M was not returned to mpool ucp_requests
+[1775925426.308468] [e003:103925:0]           mpool.c:55   UCX  WARN  object 0x4963d40 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 103936 rendezvous zero-copy read from remote cma/memory 9577.6 M was not returned to mpool ucp_requests
+[1775925426.308450] [e003:103930:0]           mpool.c:55   UCX  WARN  object 0x4eb1100 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308469] [e003:103930:0]           mpool.c:55   UCX  WARN  object 0x4eb12c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308473] [e003:103924:0]           mpool.c:55   UCX  WARN  object 0x3437f00 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 106024 rendezvous zero-copy read from remote cma/memory 9605.9 M was not returned to mpool ucp_requests
+[1775925426.308478] [e003:103930:0]           mpool.c:55   UCX  WARN  object 0x4eb1480 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308485] [e003:103925:0]           mpool.c:55   UCX  WARN  object 0x4963f00 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 103936 rendezvous zero-copy read from remote cma/memory 9577.6 M was not returned to mpool ucp_requests
+[1775925426.308496] [e003:103930:0]           mpool.c:55   UCX  WARN  object 0x4eb1640 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308507] [e003:103930:0]           mpool.c:55   UCX  WARN  object 0x4eb1800 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308514] [e003:103930:0]           mpool.c:55   UCX  WARN  object 0x4eb19c0 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308527] [e003:103930:0]           mpool.c:55   UCX  WARN  object 0x4eb1b80 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308536] [e003:103930:0]           mpool.c:55   UCX  WARN  object 0x4eb1d40 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+[1775925426.308545] [e003:103930:0]           mpool.c:55   UCX  WARN  object 0x4eb1f00 {{cpml|proto|cb|init|rk_use} tag_send from host memory length 114688 rendezvous zero-copy read from remote cma/memory 9713.5 M was not returned to mpool ucp_requests
+
+
+           ************************************************************
+           *        Program running with 24 parallel MPI-processes    *
+           *              working on a common directory               *
+           ************************************************************
+-------------------------------------------------------------------------------
+                                 ORCA GUESS
+                   Start orbitals & Density for SCF / CASSCF
+-------------------------------------------------------------------------------
+
+------------
+SCF SETTINGS
+------------
+Hamiltonian:
+ Density Functional     Method          .... DFT(GTOs)
+ Exchange Functional    Exchange        .... PBE
+   PBE kappa parameter   XKappa         ....  0.804000
+   PBE mue parameter    XMuePBE         ....  0.219520
+ Correlation Functional Correlation     .... PBE
+   PBE beta parameter  CBetaPBE         ....  0.066725
+ LDA part of GGA corr.  LDAOpt          .... PW91-LDA
+ Gradients option       PostSCFGGA      .... off
+   NL short-range parameter             ....  6.400000
+ RI-approximation to the Coulomb term is turned on
+   Number of AuxJ basis functions       .... 1833
+
+
+General Settings:
+ Integral files         IntName         .... my_molecule
+ Hartree-Fock type      HFTyp           .... RHF
+ Total Charge           Charge          ....    0
+ Multiplicity           Mult            ....    1
+ Number of Electrons    NEL             ....  262
+ Basis Dimension        Dim             ....  622
+ Nuclear Repulsion      ENuc            ....   4036.1218339541 Eh
+
+Convergence Acceleration:
+ AO-DIIS                CNVDIIS         .... on
+   Start iteration      DIISMaxIt       ....    12
+   Startup error        DIISStart       ....  0.200000
+   # of expansion vecs  DIISMaxEq       ....     5
+   Bias factor          DIISBfac        ....   1.050
+   Max. coefficient     DIISMaxC        ....  10.000
+ MO-DIIS                CNVKDIIS        .... off
+ Trust-Rad. Augm. Hess. CNVTRAH         .... auto
+   Auto Start mean grad. ratio tolernc. ....  1.125000
+   Auto Start start iteration           ....     1
+   Auto Start num. interpolation iter.  ....    10
+   Max. Number of Micro iterations      ....    24
+   Max. Number of Macro iterations      .... Maxiter - #DIIS iter
+   Number of Davidson start vectors     ....     2
+   Converg. threshold    (grad. norm)   ....   1.000e-05
+   Grad. Scal. Fac. for Micro threshold ....   0.100
+   Minimum threshold for Micro iter.    ....   1.000e-02
+   NR start threshold (gradient norm)   ....   1.000e-04
+   Initial trust radius                 ....   0.400
+   Minimum AH scaling param. (alpha)    ....   1.000
+   Maximum AH scaling param. (alpha)    .... 1000.000
+   Quad. conv. algorithm                .... NR
+   White noise on init. David. guess    .... on
+   Maximum white noise                  ....   0.010
+   Pseudo random numbers                .... off
+   Inactive MOs                         .... canonical
+   Orbital update algorithm             .... Taylor
+   Preconditioner                       .... Diag
+   Full preconditioner red. dimension   ....   250
+ SOSCF                 CNVSOSCF           .... on
+   Start iteration     SOSCFMaxIt         ....   150
+   Startup grad/error  SOSCFStart         ....  0.003300
+   Hessian update      SOSCFHessUp        .... L-BFGS
+   Autom. constraints  SOSCFAutoConstrain .... off
+ Level Shifting         CNVShift        .... on
+   Level shift para.    LevelShift      ....    0.2500
+   Turn off err/grad.   ShiftErr        ....    0.0010
+ Zerner damping         CNVZerner       .... off
+ Static damping         CNVDamp         .... on
+   Fraction old density DampFac         ....    0.7000
+   Max. Damping (<1)    DampMax         ....    0.9800
+   Min. Damping (>=0)   DampMin         ....    0.0000
+   Turn off err/grad.   DampErr         ....    0.1000
+
+SCF Procedure:
+ Maximum # iterations   MaxIter         ....   125
+ SCF integral mode      SCFMode         .... Direct
+   Integral package                     .... SHARK and LIBINT hybrid scheme
+ Reset frequency        DirectResetFreq ....    20
+ Integral Threshold     Thresh          ....  2.500e-11 Eh
+ Primitive CutOff       TCut            ....  2.500e-12 Eh
+
+Convergence Tolerance:
+ Convergence Check Mode ConvCheckMode   .... Total+1el-Energy
+ Convergence forced     ConvForced      .... 0
+ Energy Change          TolE            ....  1.000e-08 Eh
+ 1-El. energy change                    ....  1.000e-05 Eh
+ Orbital Gradient       TolG            ....  1.000e-05
+ Orbital Rotation angle TolX            ....  1.000e-05
+ DIIS Error             TolErr          ....  5.000e-07
+
+---------------------
+INITIAL GUESS: MOREAD
+---------------------
+[file orca_guess/guess_restart.cpp, line 241, Process 0]: No orbitals were found in the gbw file
+
+[file orca_guess/guess_restart.cpp, line 241, Process 19]: No orbitals were found in the gbw file
+
+[file orca_guess/guess_restart.cpp, line 241, Process 13]: No orbitals were found in the gbw file
+
+[file orca_guess/guess_restart.cpp, line 241, Process 11]: No orbitals were found in the gbw file
+
+[file orca_guess/guess_restart.cpp, line 241, Process 23]: No orbitals were found in the gbw file
+
+[file orca_guess/guess_restart.cpp, line 241, Process 2]: No orbitals were found in the gbw file
+
+[file orca_guess/guess_restart.cpp, line 241, Process 8]: No orbitals were found in the gbw file
+
+[file orca_guess/guess_restart.cpp, line 241, Process 20]: No orbitals were found in the gbw file
+
+[file orca_guess/guess_restart.cpp, line 241, Process 6]: No orbitals were found in the gbw file
+
+[file orca_guess/guess_restart.cpp, line 241, Process 18]: No orbitals were found in the gbw file
+
+[file orca_guess/guess_restart.cpp, line 241, Process 16]: No orbitals were found in the gbw file
+
+[file orca_guess/guess_restart.cpp, line 241, Process 9]: No orbitals were found in the gbw file
+
+[file orca_guess/guess_restart.cpp, line 241, Process 5]: No orbitals were found in the gbw file
+
+[file orca_guess/guess_restart.cpp, line 241, Process 22]: No orbitals were found in the gbw file
+
+[file orca_guess/guess_restart.cpp, line 241, Process 15]: No orbitals were found in the gbw file
+
+[file orca_guess/guess_restart.cpp, line 241, Process 12]: No orbitals were found in the gbw file
+
+[file orca_guess/guess_restart.cpp, line 241, Process 7]: No orbitals were found in the gbw file
+
+[file orca_guess/guess_restart.cpp, line 241, Process 4]: No orbitals were found in the gbw file
+
+[file orca_guess/guess_restart.cpp, line 241, Process 3]: No orbitals were found in the gbw file
+
+[file orca_guess/guess_restart.cpp, line 241, Process 1]: No orbitals were found in the gbw file
+
+[file orca_guess/guess_restart.cpp, line 241, Process 21]: No orbitals were found in the gbw file
+
+[file orca_guess/guess_restart.cpp, line 241, Process 10]: No orbitals were found in the gbw file
+
+[file orca_guess/guess_restart.cpp, line 241, Process 14]: No orbitals were found in the gbw file
+
+[file orca_guess/guess_restart.cpp, line 241, Process 17]: No orbitals were found in the gbw file
+
+6 total processes killed (some possibly by mpirun during cleanup)
+
+ORCA finished by error termination in GUESS
+Calling Command: mpirun -np 24  /ocean/projects/mat250017p/desantos/ORCA/orca_6_1_1_linux_x86-64_shared_openmpi418_avx2/orca_guess_mpi my_molecule.gbw my_molecule 
+[file orca_tools/qcmsg.cpp, line 394]: 
+  .... aborting the run
+
