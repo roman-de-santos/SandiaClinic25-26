@@ -1,0 +1,74 @@
+do setup
+do iters
+do force
+do relax
+do neb
+setup data
+functional
+ PBE-SP
+spin polarization
+ 0.0
+dimension of system (0=cluster ... 3=bulk)
+0
+primitive lattice vectors
+ 55.0  0.0  0.0
+ 0.0  45.0  0.0
+ 0.0  0.0  50.0
+grid dimensions
+  200 160 180
+atom types
+ 2
+atom file
+ H = H.atm
+atom file
+ C = C.atm
+number of atoms in unit cell
+  5
+atom, type, position;
+1 C         0.000000        0.000000        0.000000
+2 H        -1.039557        0.571623        1.728495
+3 H        -1.048269        0.653146       -1.694026
+4 H         1.910267        0.863548        0.015741
+5 H         0.177559       -2.088336       -0.050172
+end setup phase data
+run phase input data
+history
+ 8
+states
+ 200
+temperature
+ 0.002
+iterations
+ 100
+blend ratio
+0.05
+convergence criterion
+ 0.0005
+geometry relaxation
+gsteps
+300
+gmethod
+ASD
+end geometry relaxation
+end run phase data
+neb data
+images
+  5
+einitial - energy for start-point
+  -177.1406043404
+coordinates for start-point
+ 0.000000        0.000000        0.000000
+-1.039557        0.571623        1.728495
+-1.048269        0.653146       -1.694026
+ 1.910267        0.863548        0.015741
+ 0.177559       -2.088336       -0.050172
+efinal - energy for end-product
+  -177.1412511626
+coordinates for end-product
+ 0.000000        0.000000        0.000000
+ 1.910267        0.863548        0.015741
+-1.039557        0.571623        1.728495
+-1.048269        0.653146       -1.694026
+ 0.177559       -2.088336       -0.050172
+antikink
+end neb data

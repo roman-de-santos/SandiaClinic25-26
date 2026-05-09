@@ -1,0 +1,27 @@
+Lmod Warning: The "intel" and "intelmpi" module names are being split into
+more granular modules starting with version 2023.2.0 of Intel OneAPI.
+Components are now available in separate, correspondingly named modules:
+
+intel-compiler (Intel's modern LLVM-based compilers: icx, icpx, ifx, dpcpp)
+intel-icc (Intel's classic compilers: icc, icpc, ifort)
+intel-mpi (mpicc, mpicxx, mpiexec, mpirun)
+intel-advisor (advisor, advixe-*)
+intel-debugger (gdb-oneapi)
+intel-inspector (inspxe-*)
+intel-vtune (amplxe-*, vtune-*)
+intel-ippcp-intel64 (libcrypto_*, libippcp)
+etc.
+
+A comprehensive "intel-oneapi" module is also provided to load the full suite.
+
+Please update your scripts to load "intel-compiler", "intel-icc", "intel-mpi",
+and/or other tools under the new module names instead of "intel" and
+"intelmpi".
+
+
+While processing the following module(s):
+    Module fullname  Module Filename
+    ---------------  ---------------
+    intel/2021.10.0  /opt/modulefiles/production/intel/2021.10.0.lua
+
+slurmstepd: error: *** JOB 40687107 ON r006 CANCELLED AT 2026-05-09T15:26:10 ***
