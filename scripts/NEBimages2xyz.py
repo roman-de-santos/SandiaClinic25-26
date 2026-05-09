@@ -17,14 +17,17 @@ def convert_bohr_to_angstrom(input_path, output_prefix):
     BOHR_TO_ANG = 0.52917721067
     
     # Atom sequence (Must Match NEB Atom order)
-    atom_types = [
-        "O", "Si", "Si", "C", "C", "C", "C", "C", "C", "C", "C", 
-        "H", "H", "H", "H", "H", "H", "H", "H", "H", "H", "H", 
-        "H", "H", "H", "H", "H", "H", "H", "Si", "O", "O", "Si", 
-        "Si", "C", "C", "C", "H", "C", "C", "C", "C", "H", "H", 
-        "H", "H", "H", "H", "H", "H", "H", "H", "H", "H", "H", 
-        "H", "H", "H", "H", "H", "H", "H", "H"    
-    ]
+
+    atom_types = ["C", "H","H","H","H"]
+
+    # atom_types = [
+    #     "O", "Si", "Si", "C", "C", "C", "C", "C", "C", "C", "C", 
+    #     "H", "H", "H", "H", "H", "H", "H", "H", "H", "H", "H", 
+    #     "H", "H", "H", "H", "H", "H", "H", "Si", "O", "O", "Si", 
+    #     "Si", "C", "C", "C", "H", "C", "C", "C", "C", "H", "H", 
+    #     "H", "H", "H", "H", "H", "H", "H", "H", "H", "H", "H", 
+    #     "H", "H", "H", "H", "H", "H", "H", "H"    
+    # ]
 
     # atom_types = [
     #    "O", "Si", "Si", "C", "C", "H", "H", "H", "Si", "O", "O", "Si", "Si", "H", "H", "H", "H",
